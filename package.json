@@ -1,0 +1,10 @@
+{
+  "name": "@modera-plugin/thoughtdag",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "files": ["plugin.json", "dist", "LICENSE"],
+  "scripts": {"build": "npm --prefix upstream ci --ignore-scripts && npm --prefix upstream run build -- --base=./ --outDir=../dist/ui && modera-plugin-build ."},
+  "devDependencies": {"@modera/plugin-build": "0.1.0"}
+}

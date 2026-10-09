@@ -1,0 +1,15 @@
+{
+  "apiVersion": 1,
+  "id": "modera.thoughtdag",
+  "name": "ThoughtDAG",
+  "version": "0.1.0",
+  "description": "ThoughtDAG canvas adapted for Modera.",
+  "author": "Modera contributors and Xia Chen",
+  "category": "tasks",
+  "icon": "box",
+  "activationScope": "global",
+  "main": "dist/index.cjs",
+  "permissions": ["history.read", "storage.read", "storage.write", "models.generate"],
+  "extensions": ["workbench"],
+  "frontends": {"workbench": {"root": "dist/ui", "entry": "index.html"}}
+}
