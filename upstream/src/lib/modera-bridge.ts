@@ -2,7 +2,7 @@
 // conversation workbench. This module only installs inside a Modera frontend.
 type BridgeResult = { id: string; value?: unknown; error?: string };
 type ModeraFrontend = {
-  requestConversation(input: { workspaceKey: string; content: string; contextInput: string; references: []; modelId?: string; reasoningEffort?: string }): Promise<{ sessionId: string }>;
+  requestConversation(input: { workspaceKey: string; content: string; contextInput: string; references: []; hidden?: boolean; modelId?: string; reasoningEffort?: string }): Promise<{ sessionId: string }>;
   listModels(): Promise<readonly { id: string; name: string; provider: string; vision: boolean; efforts: readonly string[]; defaultEffort: string }[]>;
   action(id: string, value?: string): Promise<{ view: { data?: { bridgeResult?: BridgeResult } } }>;
   snapshot(): Promise<{ conversation?: { sessionId: string; live?: { text: string; thinking: string }; run?: { status: string }; messages: { role: string; text: string }[] } }>;
@@ -44,7 +44,7 @@ if (frontend) {
   const answer = async (body: unknown, signal?: AbortSignal): Promise<{ text: string; sessionId: string }> => {
     const content = questionOf(body);
     if (!content) throw new Error('A question is required');
-    const receipt = await frontend.requestConversation({ workspaceKey: 'thoughtdag', content, contextInput: contextOf(body), references: [], ...(modelOf(body) ? { modelId: modelOf(body) } : {}), ...(effortOf(body) ? { reasoningEffort: effortOf(body) } : {}) });
+    const receipt = await frontend.requestConversation({ workspaceKey: 'thoughtdag', content, contextInput: contextOf(body), references: [], hidden: true, ...(modelOf(body) ? { modelId: modelOf(body) } : {}), ...(effortOf(body) ? { reasoningEffort: effortOf(body) } : {}) });
     for (let attempt = 0; attempt < 240; attempt++) {
       if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
       const transcript = await history(receipt.sessionId);
@@ -64,7 +64,7 @@ if (frontend) {
         try {
           const content = questionOf(body);
           if (!content) throw new Error('A question is required');
-          const receipt = await frontend.requestConversation({ workspaceKey: 'thoughtdag', content, contextInput: contextOf(body), references: [], ...(modelOf(body) ? { modelId: modelOf(body) } : {}), ...(effortOf(body) ? { reasoningEffort: effortOf(body) } : {}) });
+          const receipt = await frontend.requestConversation({ workspaceKey: 'thoughtdag', content, contextInput: contextOf(body), references: [], hidden: true, ...(modelOf(body) ? { modelId: modelOf(body) } : {}), ...(effortOf(body) ? { reasoningEffort: effortOf(body) } : {}) });
           let emitted = '';
           let reasoning = '';
           send({ harnessSession: receipt.sessionId });
