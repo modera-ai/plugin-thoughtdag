@@ -6,7 +6,7 @@ export const activate = async (host: any) => {
     slot: "workbench",
     frontend: "workbench",
     workbench: { title: "ThoughtDAG", icon: "waypoints", order: -105, locales: { "zh-CN": { title: "思维画布" } } },
-    conversationView: { title: "ThoughtDAG", placement: "workbench", nativeRequests: true, locales: { "zh-CN": { title: "思维画布" } } },
+    conversationView: { title: "ThoughtDAG", placement: "workbench", nativeRequests: true, canvasOnly: true, locales: { "zh-CN": { title: "思维画布" } } },
     requiredPermissions: ["history.read", "storage.read", "storage.write", "models.generate"],
     actions: ["bridge.history"],
     async render(_request: unknown, context: { projectId?: string }) {

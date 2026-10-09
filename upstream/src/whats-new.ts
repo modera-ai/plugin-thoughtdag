@@ -39,6 +39,42 @@ const DOCS = 'https://chenxiachan.github.io/thoughtdag/docs';
 
 export const WHATS_NEW: WhatsNewEntry[] = [
   {
+    version: '0.5.17',
+    date: '2026-10-07',
+    announce: true,
+    lead: {
+      zh: '📖 阅读器停靠在画布左侧：原文常驻，画布和节点面板在旁边照常工作。',
+      en: '📖 The reader docks on the canvas\'s left: the text stays, the canvas and the node panel keep working beside it.',
+    },
+    items: [
+      {
+        title: { zh: '📖 阅读器停靠', en: '📖 The docked reader' },
+        body: {
+          zh: '双击材料，阅读器现在停靠在画布左侧，宽度可拖，画布和右侧节点面板照常操作。在阅读器里提问，回答显示在原文下方的线索带里，画布不会跳走。标题带下拉可以切换材料；在画布上选中一份材料，阅读器跟着切过去；选中带页码的问题，原文滚到那一页。右上角可以展开成以前的全屏形态，再切回来；窗口太窄时自动用全屏。',
+          en: 'Double-click a material and the reader now docks on the canvas\'s left, as wide as you drag it, with the canvas and the node panel live beside it. Ask from the reader and the answer reads in a thread band under the text; the canvas stays put. The title\'s dropdown switches materials; selecting a material on the canvas switches the reader too, and selecting a page-anchored question scrolls the text to that page. The top-right button expands to the former full-screen view and back; a narrow window uses full screen on its own.',
+        },
+      },
+      {
+        title: { zh: '⬚ 分区框不再自己长大', en: '⬚ Frames stay where you drew them' },
+        body: {
+          zh: '自动布局不再移动或改动分区框。以前框会按成员的新位置重新包一圈，同一棵对话树上的两个框会互相吞并（#64）。布局后跑到框外的节点，拖动分区框重新包住即可；拖框带节点的行为不变。',
+          en: 'Auto layout no longer moves or resizes a frame. It used to re-wrap a frame around its members\' new positions, and two frames on one conversation tree would swallow each other (#64). Nodes that layout moves out of a frame are yours to re-frame by dragging the frame; dragging a frame still carries its nodes.',
+        },
+      },
+    ],
+  },
+  {
+    // a quiet release: the 0.5.12 entry stays the announcement, this one is history only
+    version: '0.5.16',
+    date: '2026-10-03',
+    announce: false,
+    lead: {
+      zh: '问画布的三处修正：问题属于提问时的那张画布，回答只存在那里，切画布时对话框关闭（#59）；一轮回答记住自己请求时的编号，之后落到画布上芯片和连线一致（#60）；全新机器上的全量回忆计数直接得 0，不再一直显示刷新中（#57）。示例画布的欢迎便签和指南写全了平移画布的每种方式。',
+      en: 'Three corrections to ask-the-canvas: a question belongs to the canvas it was asked on, its answer is stored there alone, and switching canvases closes the dialog (#59); a turn keeps the numbers its request used, so chips and wires agree when it is dropped later (#60); the full-recall count on a fresh machine reads zero instead of refreshing forever (#57). The example canvas\'s welcome note and the guides name every way to pan.',
+    },
+    items: [],
+  },
+  {
     // a quiet release: the 0.5.12 entry stays the announcement, this one is history only
     version: '0.5.15',
     date: '2026-10-02',
