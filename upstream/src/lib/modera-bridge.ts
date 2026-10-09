@@ -1,14 +1,18 @@
 // Adapt the existing ThoughtDAG SPA's proxy protocol to Modera's native
 // conversation workbench. This module only installs inside a Modera frontend.
+import { useProjects } from '../store/projects';
+import { getModelsOnce } from './use-models';
 type BridgeResult = { id: string; value?: unknown; error?: string };
 type ModeraFrontend = {
-  requestConversation(input: { workspaceKey: string; content: string; contextInput: string; references: []; hidden?: boolean; modelId?: string; reasoningEffort?: string }): Promise<{ sessionId: string }>;
-  listModels(): Promise<readonly { id: string; name: string; provider: string; vision: boolean; efforts: readonly string[]; defaultEffort: string }[]>;
+  requestConversation(input: { workspaceKey: string; canvasId?: string; content: string; contextInput?: string; references: []; hidden?: boolean; modelId?: string; reasoningEffort?: string; workspacePath?: string; workspaceGuard?: 'ask' | 'allow' }): Promise<{ sessionId: string }>;
+  pickWorkspaceDirectory(): Promise<string | null>;
+  listModels(): Promise<readonly { id: string; name: string; provider: string; vision: boolean; efforts: readonly string[]; defaultEffort: string; agentRuntime?: string }[]>;
   action(id: string, value?: string): Promise<{ view: { data?: { bridgeResult?: BridgeResult } } }>;
   snapshot(): Promise<{ conversation?: { sessionId: string; live?: { text: string; thinking: string }; run?: { status: string }; messages: { role: string; text: string }[] } }>;
 };
 
 const frontend = (window as Window & { moderaPlugin?: ModeraFrontend }).moderaPlugin;
+export const moderaFrontend = frontend;
 if (frontend) {
   const originalFetch = window.fetch.bind(window);
   const json = (value: unknown, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json' } });
@@ -41,10 +45,36 @@ if (frontend) {
     const effort = (body as { reasoningEffort?: unknown })?.reasoningEffort;
     return typeof effort === 'string' && ['none', 'minimal', 'low', 'medium', 'high', 'xhigh'].includes(effort) ? effort : undefined;
   };
+  const workspaceOf = (): { workspacePath?: string } => {
+    const state = useProjects.getState();
+    const project = state.projects.find(item => item.id === state.activeId);
+    return {
+      ...(project?.agentCwd ? { workspacePath: project.agentCwd } : {}),
+    };
+  };
+  const nativeInput = async (body: unknown) => {
+    const question = questionOf(body);
+    const context = contextOf(body);
+    const requested = modelOf(body);
+    const models = await getModelsOnce();
+    const selected = requested ?? models?.default;
+    const agent = models?.models.find(item => item.id === selected)?.agentRuntime;
+    return {
+      workspaceKey: 'thoughtdag',
+      ...(useProjects.getState().activeId ? { canvasId: useProjects.getState().activeId! } : {}),
+      content: agent ? context : question,
+      ...(!agent ? { contextInput: context } : {}),
+      references: [] as [], hidden: true,
+      ...(requested ? { modelId: requested } : {}),
+      ...(effortOf(body) ? { reasoningEffort: effortOf(body) } : {}),
+      ...workspaceOf(),
+      ...(agent === 'codex' && requested && useProjects.getState().projects.find(item => item.id === useProjects.getState().activeId)?.agentGuard?.mode === 'allow' ? { workspaceGuard: 'allow' as const } : {}),
+    };
+  };
   const answer = async (body: unknown, signal?: AbortSignal): Promise<{ text: string; sessionId: string }> => {
     const content = questionOf(body);
     if (!content) throw new Error('A question is required');
-    const receipt = await frontend.requestConversation({ workspaceKey: 'thoughtdag', content, contextInput: contextOf(body), references: [], hidden: true, ...(modelOf(body) ? { modelId: modelOf(body) } : {}), ...(effortOf(body) ? { reasoningEffort: effortOf(body) } : {}) });
+    const receipt = await frontend.requestConversation(await nativeInput(body));
     for (let attempt = 0; attempt < 240; attempt++) {
       if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
       const transcript = await history(receipt.sessionId);
@@ -64,7 +94,7 @@ if (frontend) {
         try {
           const content = questionOf(body);
           if (!content) throw new Error('A question is required');
-          const receipt = await frontend.requestConversation({ workspaceKey: 'thoughtdag', content, contextInput: contextOf(body), references: [], hidden: true, ...(modelOf(body) ? { modelId: modelOf(body) } : {}), ...(effortOf(body) ? { reasoningEffort: effortOf(body) } : {}) });
+          const receipt = await frontend.requestConversation(await nativeInput(body));
           let emitted = '';
           let reasoning = '';
           send({ harnessSession: receipt.sessionId });

@@ -25,19 +25,28 @@ try {
       requestConversation: async input => {
         if (input.workspaceKey !== "thoughtdag") throw new Error("Wrong workspace");
         window.lastNativeQuestion = input.content;
+        window.lastNativeRequest = input;
         return { sessionId: "native-session" };
       },
+      listModels: async () => [{ id: "modera/native", name: "Modera", provider: "Modera", vision: false, efforts: ["medium"], defaultEffort: "medium" }],
+      pickWorkspaceDirectory: async () => "C:\\canvas-work",
+      onThemeChanged: () => () => {},
+      setTheme: async () => {},
+      snapshot: async () => ({ theme: { mode: "light" }, conversation: { sessionId: "native-session", messages: [{ role: "assistant", text: "Native answer" }], run: { status: "completed" } } }),
       action: async (_action, value) => ({ view: { data: { bridgeResult: { id: JSON.parse(value).id, value: { messages: [{ role: "user", text: "Question" }, { role: "assistant", text: "Native answer" }], run: { status: "completed" } } } } } }),
     };
   });
   await page.goto(`http://127.0.0.1:${server.address().port}/`);
-  await page.locator(".react-flow").first().waitFor({ timeout: 15000 });
+  await page.locator(".react-flow").first().waitFor({ timeout: 15000 }).catch(async error => { throw new Error(`${error.message}\nPage errors: ${errors.join('; ')}\nBody: ${(await page.locator('body').innerText()).slice(0, 500)}`); });
+  await page.locator('[data-modera-cwd]').click();
+  await page.locator('[data-modera-cwd-pick]').click();
+  await page.locator('[data-modera-cwd]').filter({ hasText: 'canvas-work' }).waitFor();
   const bridge = await page.evaluate(async () => {
     const models = await fetch("/api/models").then(response => response.json());
     const stream = await fetch("/api/stream", { method: "POST", body: JSON.stringify({ messages: [{ role: "user", content: "Question" }] }) }).then(response => response.text());
-    return { models, stream, question: window.lastNativeQuestion };
+    return { models, stream, question: window.lastNativeQuestion, request: window.lastNativeRequest };
   });
-  if (bridge.models.default !== "modera/native" || !bridge.stream.includes("Native answer") || bridge.question !== "Question") throw new Error("Modera model/history bridge did not answer");
+  if (bridge.models.default !== "modera/native" || !bridge.stream.includes("Native answer") || bridge.question !== "Question" || bridge.request.workspacePath !== "C:\\canvas-work" || !bridge.request.canvasId) throw new Error("Modera model/workspace bridge did not answer");
   if (errors.length) throw new Error(errors.join("\n"));
   process.stdout.write(`ThoughtDAG SPA and Modera model/history bridge rendered in browser: ${await page.title()}\n`);
 } finally {

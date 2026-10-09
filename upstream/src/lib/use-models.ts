@@ -6,6 +6,7 @@ import type { AgentRuntime } from '../types';
 import { t, fmt } from '../i18n';
 
 export interface ModelInfo {
+  agentRuntime?: string;
   id: string;
   name: string;
   provider: string;
