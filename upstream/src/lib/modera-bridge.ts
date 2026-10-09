@@ -68,7 +68,7 @@ if (frontend) {
       ...(requested ? { modelId: requested } : {}),
       ...(effortOf(body) ? { reasoningEffort: effortOf(body) } : {}),
       ...workspaceOf(),
-      ...(agent === 'codex' && requested && useProjects.getState().projects.find(item => item.id === useProjects.getState().activeId)?.agentGuard?.mode === 'allow' ? { workspaceGuard: 'allow' as const } : {}),
+      ...(agent ? { workspaceGuard: requested && useProjects.getState().projects.find(item => item.id === useProjects.getState().activeId)?.agentGuard?.mode === 'allow' ? 'allow' as const : 'ask' as const } : {}),
     };
   };
   const answer = async (body: unknown, signal?: AbortSignal): Promise<{ text: string; sessionId: string }> => {

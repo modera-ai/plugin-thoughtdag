@@ -13,7 +13,7 @@ export default function ModeraCwdChip() {
   const activeId = useProjects(state => state.activeId);
   const projects = useProjects(state => state.projects);
   const [open, setOpen] = useState(false);
-  const [codex, setCodex] = useState(false);
+  const [agent, setAgent] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const meta = projects.find(project => project.id === activeId);
   const recent = [...new Set(projects.map(project => project.agentCwd).filter((path): path is string => !!path))]
@@ -25,7 +25,7 @@ export default function ModeraCwdChip() {
     void getModelsOnce().then(data => {
       if (!alive) return;
       const id = selectedModel === 'modera/native' ? data?.default : selectedModel;
-      setCodex(data?.models.find(model => model.id === id)?.agentRuntime === 'codex');
+      setAgent(!!data?.models.find(model => model.id === id)?.agentRuntime);
     });
     return () => { alive = false; };
   }, [selectedModel]);
@@ -75,9 +75,9 @@ export default function ModeraCwdChip() {
         <button onClick={() => { void moderaFrontend?.pickWorkspaceDirectory().then(path => { if (path) void choose(path); }); }} className="w-full text-left px-3 py-2 text-xs text-ink hover:bg-wash flex items-center gap-2" data-modera-cwd-pick>
           <FolderOpen size={14} className="text-ink-faint shrink-0" /> {zh ? '选择文件夹…' : 'Choose folder…'}
         </button>
-        {codex && <>
+        {agent && <>
           <div className="border-t border-line/60 my-1" />
-          <p className="text-2xs text-ink-faint uppercase tracking-wider font-medium px-3 pt-1 pb-1">{zh ? '工作目录之外的操作 · Codex' : 'Outside workspace · Codex'}</p>
+          <p className="text-2xs text-ink-faint uppercase tracking-wider font-medium px-3 pt-1 pb-1">{zh ? '工作目录之外的操作 · Agent' : 'Outside workspace · Agent'}</p>
           <button onClick={() => void guard('ask')} className="w-full text-left px-3 py-1.5 text-xs hover:bg-wash flex items-center gap-2" data-modera-guard="ask">
             <ShieldCheck size={14} className="text-ink-faint shrink-0" /><span className="flex-1 text-ink">{zh ? '每次询问' : 'Ask each time'}</span>
             {(meta?.agentGuard?.mode ?? 'ask') === 'ask' && <Check size={13} className="text-accent shrink-0" />}
