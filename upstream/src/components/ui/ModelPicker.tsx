@@ -104,13 +104,14 @@ export default function ModelPicker({ value, onChange, compact }: PickerProps) {
     if (nodeMode) onChange!(id ?? undefined);
     else setSelectedModel(id === data?.default ? null : id);
     const m = id ? models.find((x) => x.id === id) : null;
-    if (m && isAgentModel(m.id) && (m.efforts?.length ?? 0) > 0) { setEffortStepFor(m.id); return; }
+    if (m && (isAgentModel(m.id) || modera) && (m.efforts?.length ?? 0) > 0) { setEffortStepFor(m.id); return; }
     setOpen(false);
   };
   // the level the next turn will run at, as far as the runtime told us
   const effortWord = (m: ModelInfo | null | undefined): string => {
-    if (!m || !isAgentModel(m.id) || !m.efforts?.length) return '';
-    return m.efforts.includes(agentEffort) ? agentEffort : (m.defaultEffort ?? '');
+    if (!m || !(isAgentModel(m.id) || modera) || !m.efforts?.length) return '';
+    const effort = m.efforts.includes(agentEffort) ? agentEffort : (m.defaultEffort ?? '');
+    return modera && effort === 'none' ? '' : effort;
   };
   const withEffort = (m: ModelInfo) => (effortWord(m) ? `${m.name} · ${effortWord(m)}` : m.name);
 

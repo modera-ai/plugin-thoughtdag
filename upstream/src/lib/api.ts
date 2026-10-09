@@ -163,6 +163,7 @@ export async function llmCall(contextMessages: ContextMessage[], images?: ImageA
         messages: contextMessages,
         images: images?.length ? images : undefined,
         model: modelOverride || useUiStore.getState().selectedModel || undefined,
+        reasoningEffort: useUiStore.getState().agentEffort || undefined,
         ...(opts?.fast ? { fast: true } : {}),
         // browser-configured providers ride along on EVERY request — the
         // proxy builds a per-request registry and forgets it (stateless)
@@ -325,6 +326,7 @@ export async function llmCallStream(
         model: modelOverride || useUiStore.getState().selectedModel || undefined,
         providers: statelessProviders(),
         ...(harness ? { harness } : {}),
+        reasoningEffort: useUiStore.getState().agentEffort || undefined,
       }),
       signal,
     });

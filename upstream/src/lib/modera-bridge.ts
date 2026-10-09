@@ -2,8 +2,8 @@
 // conversation workbench. This module only installs inside a Modera frontend.
 type BridgeResult = { id: string; value?: unknown; error?: string };
 type ModeraFrontend = {
-  requestConversation(input: { workspaceKey: string; content: string; contextInput: string; references: []; modelId?: string }): Promise<{ sessionId: string }>;
-  listModels(): Promise<readonly { id: string; name: string; provider: string; vision: boolean }[]>;
+  requestConversation(input: { workspaceKey: string; content: string; contextInput: string; references: []; modelId?: string; reasoningEffort?: string }): Promise<{ sessionId: string }>;
+  listModels(): Promise<readonly { id: string; name: string; provider: string; vision: boolean; efforts: readonly string[]; defaultEffort: string }[]>;
   action(id: string, value?: string): Promise<{ view: { data?: { bridgeResult?: BridgeResult } } }>;
   snapshot(): Promise<{ conversation?: { sessionId: string; live?: { text: string; thinking: string }; run?: { status: string }; messages: { role: string; text: string }[] } }>;
 };
@@ -37,10 +37,14 @@ if (frontend) {
     const id = (body as { model?: unknown })?.model;
     return typeof id === 'string' && id !== 'modera/native' ? id : undefined;
   };
+  const effortOf = (body: unknown): string | undefined => {
+    const effort = (body as { reasoningEffort?: unknown })?.reasoningEffort;
+    return typeof effort === 'string' && ['none', 'minimal', 'low', 'medium', 'high', 'xhigh'].includes(effort) ? effort : undefined;
+  };
   const answer = async (body: unknown, signal?: AbortSignal): Promise<{ text: string; sessionId: string }> => {
     const content = questionOf(body);
     if (!content) throw new Error('A question is required');
-    const receipt = await frontend.requestConversation({ workspaceKey: 'thoughtdag', content, contextInput: contextOf(body), references: [], ...(modelOf(body) ? { modelId: modelOf(body) } : {}) });
+    const receipt = await frontend.requestConversation({ workspaceKey: 'thoughtdag', content, contextInput: contextOf(body), references: [], ...(modelOf(body) ? { modelId: modelOf(body) } : {}), ...(effortOf(body) ? { reasoningEffort: effortOf(body) } : {}) });
     for (let attempt = 0; attempt < 240; attempt++) {
       if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
       const transcript = await history(receipt.sessionId);
@@ -60,7 +64,7 @@ if (frontend) {
         try {
           const content = questionOf(body);
           if (!content) throw new Error('A question is required');
-          const receipt = await frontend.requestConversation({ workspaceKey: 'thoughtdag', content, contextInput: contextOf(body), references: [], ...(modelOf(body) ? { modelId: modelOf(body) } : {}) });
+          const receipt = await frontend.requestConversation({ workspaceKey: 'thoughtdag', content, contextInput: contextOf(body), references: [], ...(modelOf(body) ? { modelId: modelOf(body) } : {}), ...(effortOf(body) ? { reasoningEffort: effortOf(body) } : {}) });
           let emitted = '';
           let reasoning = '';
           send({ harnessSession: receipt.sessionId });
