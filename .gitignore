@@ -2,3 +2,14 @@
 /upstream/dist/
 /upstream/*.tsbuildinfo
 /dist/
+
+/node_modules/
+
+/release/
+
+.env
+
+.env.*
+
+/upstream/node_modules/
+/upstream/dist/
