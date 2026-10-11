@@ -18,7 +18,8 @@
   "scripts": {
     "build": "npm --prefix upstream ci --ignore-scripts && npm --prefix upstream run build -- --base=./ --outDir=../dist/ui && modera-plugin-build .",
     "pack": "modera-plugin pack .",
-    "release": "modera-plugin release . --publish"
+    "release": "modera-plugin release . --publish",
+    "dev": "node tools/modera-dev.mjs"
   },
   "devDependencies": {
     "@modera/contracts": "file:vendor/modera-contracts-0.1.0.tgz",
