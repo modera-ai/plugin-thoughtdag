@@ -1761,7 +1761,7 @@ function Canvas() {
             title={t('chat.entryTitle')}
             data-chat-entry
           >
-            <MessageCircleQuestion size={15} strokeWidth={1.75} />
+            <MessageCircleQuestion size={15} />
           </button>
         )}
         {hasNodes && (
@@ -1771,7 +1771,7 @@ function Canvas() {
             title={t('search.entryTitle')}
             data-search-entry
           >
-            <Search size={15} strokeWidth={1.75} />
+            <Search size={15} />
           </button>
         )}
         <LangSwitch />

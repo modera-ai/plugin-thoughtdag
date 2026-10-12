@@ -1179,7 +1179,7 @@ function ReaderOverlay({ node, onLocate, dock }: { node: ThoughtNode; onLocate: 
                     title={t('reader.locate')}
                     className="w-4.5 h-4.5 rounded-full flex items-center justify-center text-ink-faint hover:text-accent shrink-0"
                   >
-                    <Crosshair size={11} strokeWidth={1.75} />
+                    <Crosshair size={11} />
                   </button>
                 </span>
               ))}
@@ -1240,7 +1240,7 @@ function ReaderOverlay({ node, onLocate, dock }: { node: ThoughtNode; onLocate: 
                 data-reader-highlight
                 className="w-8 h-8 rounded-lg bg-wash text-ink-muted hover:text-amber-600 hover:bg-amber-500/10 flex items-center justify-center transition-colors shrink-0"
               >
-                <Highlighter size={14} strokeWidth={1.75} />
+                <Highlighter size={14} />
               </button>
             )}
             {!ask.targetNodeId && (
@@ -1277,7 +1277,7 @@ function ReaderOverlay({ node, onLocate, dock }: { node: ThoughtNode; onLocate: 
         <span className="text-xs text-ink-muted truncate [writing-mode:vertical-rl] max-h-[45vh]" title={shownTitle}>{shownTitle}</span>
         <div className="flex-1" />
         <button onClick={() => useUiStore.getState().setReaderMode('full')} title={t('reader.expand')} className={iconButton}>
-          <Maximize2 size={14} strokeWidth={1.75} />
+          <Maximize2 size={14} />
         </button>
         <button onClick={close} title={t('panel.close')} className={iconButton}>
           <X data-icon="x" size={15} strokeWidth={1.75} />

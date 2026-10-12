@@ -241,7 +241,7 @@ export default function ModelPicker({ value, onChange, compact }: PickerProps) {
                       their tail, so they wrap instead of losing it to an ellipsis (#43) */}
                   <span className={provider === AGENT_PROVIDER ? 'flex-1 break-words leading-snug' : 'truncate flex-1'}>{m.name.replace(` (${m.provider})`, '')}</span>
                   {m.vision && <span className="text-2xs text-ink-faint shrink-0">{t('model.vision')}</span>}
-                  {m.id === activeId && <Check size={13} strokeWidth={2} className="shrink-0" />}
+                  {m.id === activeId && <Check size={13} className="shrink-0" />}
                 </button>
                 {effortStepFor === m.id && <EffortStep model={m} onDone={() => { setEffortStepFor(null); setOpen(false); }} />}
               </div>
