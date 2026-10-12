@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Download, Highlighter, Trash2, X } from 'lucide-react';
+import { DownloadIcon as Download } from "@phosphor-icons/react/dist/csr/Download";
+import { HighlighterIcon as Highlighter } from "@phosphor-icons/react/dist/csr/Highlighter";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../../store';
 import { useUiStore } from '../../lib/ui-store';
 import { downloadMarkdown } from '../../lib/export';
@@ -95,7 +98,7 @@ export default function HighlightsOverviewModal({ onLocate }: { onLocate: (nodeI
           {sortBtn('time', t('hlov.byTime'))}
           {sortBtn('node', t('hlov.byNode'))}
           <button onClick={close} className="text-ink-faint hover:text-ink w-7 h-7 rounded-lg hover:bg-wash flex items-center justify-center transition-colors ml-1">
-            <X size={15} strokeWidth={1.75} />
+            <X data-icon="x" size={15} strokeWidth={1.75} />
           </button>
         </div>
 

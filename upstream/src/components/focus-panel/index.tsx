@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../../store';
 import { useUiStore } from '../../lib/ui-store';
 import { partitionContext } from '../../lib/graph';
@@ -130,7 +130,7 @@ export default function FocusPanel({ onFocusNode }: { onFocusNode?: (id: string)
             title={t('panel.close')}
             className="text-ink-faint hover:text-ink transition-colors shrink-0 ml-1 h-8 flex items-center"
           >
-            <X size={16} strokeWidth={1.75} />
+            <X data-icon="x" size={16} strokeWidth={1.75} />
           </button>
         </div>
       </div>

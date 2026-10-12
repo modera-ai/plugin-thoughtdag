@@ -16,7 +16,43 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import 'highlight.js/styles/github.css';
-import { ArrowRight, BookOpen, Bot, Brain, CircleHelp, Download, Drama, Eye, FileText, FolderSync, Frame, GitBranch, Hand, Highlighter, History as HistoryIcon, ImageDown, KeyRound, LayoutGrid, ListRestart, Loader2, MessageCircleQuestion, Minimize2, MoreHorizontal, Paperclip, Redo2, Rewind, Scissors, Search, Share2, SquareTerminal, Star, Stethoscope, StickyNote, Trash2, Undo2, Workflow, X } from 'lucide-react';
+import { ArrowRightIcon as ArrowRight } from "@phosphor-icons/react/dist/csr/ArrowRight";
+import { BookOpenIcon as BookOpen } from "@phosphor-icons/react/dist/csr/BookOpen";
+import { RobotIcon as Bot } from "@phosphor-icons/react/dist/csr/Robot";
+import { BrainIcon as Brain } from "@phosphor-icons/react/dist/csr/Brain";
+import { QuestionIcon as CircleHelp } from "@phosphor-icons/react/dist/csr/Question";
+import { DownloadIcon as Download } from "@phosphor-icons/react/dist/csr/Download";
+import { MaskHappyIcon as Drama } from "@phosphor-icons/react/dist/csr/MaskHappy";
+import { EyeIcon as Eye } from "@phosphor-icons/react/dist/csr/Eye";
+import { FileTextIcon as FileText } from "@phosphor-icons/react/dist/csr/FileText";
+import { FolderSimpleIcon as FolderSync } from "@phosphor-icons/react/dist/csr/FolderSimple";
+import { FrameCornersIcon as Frame } from "@phosphor-icons/react/dist/csr/FrameCorners";
+import { GitBranchIcon as GitBranch } from "@phosphor-icons/react/dist/csr/GitBranch";
+import { HandIcon as Hand } from "@phosphor-icons/react/dist/csr/Hand";
+import { HighlighterIcon as Highlighter } from "@phosphor-icons/react/dist/csr/Highlighter";
+import { ClockCounterClockwiseIcon as HistoryIcon } from "@phosphor-icons/react/dist/csr/ClockCounterClockwise";
+import { ImageIcon as ImageDown } from "@phosphor-icons/react/dist/csr/Image";
+import { KeyIcon as KeyRound } from "@phosphor-icons/react/dist/csr/Key";
+import { SquaresFourIcon as LayoutGrid } from "@phosphor-icons/react/dist/csr/SquaresFour";
+import { ListIcon as ListRestart } from "@phosphor-icons/react/dist/csr/List";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { ChatCircleDotsIcon as MessageCircleQuestion } from "@phosphor-icons/react/dist/csr/ChatCircleDots";
+import { ArrowsInIcon as Minimize2 } from "@phosphor-icons/react/dist/csr/ArrowsIn";
+import { DotsThreeIcon as MoreHorizontal } from "@phosphor-icons/react/dist/csr/DotsThree";
+import { PaperclipIcon as Paperclip } from "@phosphor-icons/react/dist/csr/Paperclip";
+import { ArrowBendUpRightIcon as Redo2 } from "@phosphor-icons/react/dist/csr/ArrowBendUpRight";
+import { RewindIcon as Rewind } from "@phosphor-icons/react/dist/csr/Rewind";
+import { ScissorsIcon as Scissors } from "@phosphor-icons/react/dist/csr/Scissors";
+import { MagnifyingGlassIcon as Search } from "@phosphor-icons/react/dist/csr/MagnifyingGlass";
+import { ShareNetworkIcon as Share2 } from "@phosphor-icons/react/dist/csr/ShareNetwork";
+import { TerminalWindowIcon as SquareTerminal } from "@phosphor-icons/react/dist/csr/TerminalWindow";
+import { StarIcon as Star } from "@phosphor-icons/react/dist/csr/Star";
+import { StethoscopeIcon as Stethoscope } from "@phosphor-icons/react/dist/csr/Stethoscope";
+import { NoteIcon as StickyNote } from "@phosphor-icons/react/dist/csr/Note";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
+import { ArrowBendUpLeftIcon as Undo2 } from "@phosphor-icons/react/dist/csr/ArrowBendUpLeft";
+import { FlowArrowIcon as Workflow } from "@phosphor-icons/react/dist/csr/FlowArrow";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import './index.css';
 import ThoughtNode from './components/ThoughtNode';
 import ParadigmNode from './components/ParadigmNode';
@@ -1347,7 +1383,7 @@ function Canvas() {
                       <button
                         onClick={() => setPendingAttachments((p) => p.filter((a) => a.id !== att.id))}
                         className="text-ink-faint hover:text-red-500 text-xs opacity-0 group-hover:opacity-100 transition-opacity"
-                      ><X size={14} strokeWidth={1.75} /></button>
+                      ><X data-icon="x" size={14} strokeWidth={1.75} /></button>
                     </div>
                   ))}
                 </div>
@@ -1358,7 +1394,7 @@ function Canvas() {
                 <div className="space-y-1 mt-2">
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-ink-muted font-medium">{t('landing.roleLabel')}</span>
-                    <button onClick={() => { setShowRootRole(false); setRootRole(''); }} className="text-xs text-ink-faint hover:text-ink-muted"><X size={14} strokeWidth={1.75} /></button>
+                    <button onClick={() => { setShowRootRole(false); setRootRole(''); }} className="text-xs text-ink-faint hover:text-ink-muted"><X data-icon="x" size={14} strokeWidth={1.75} /></button>
                   </div>
                   <textarea
                     value={rootRole}

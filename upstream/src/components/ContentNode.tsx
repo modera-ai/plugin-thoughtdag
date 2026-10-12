@@ -1,6 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Handle, NodeResizeControl, Position, useReactFlow, useUpdateNodeInternals, type NodeProps } from '@xyflow/react';
-import { BookOpen, ExternalLink, FileText, Link2, Link2Off, Loader2, MoveDiagonal2, Paperclip, RefreshCw, StickyNote, Trash2, X } from 'lucide-react';
+import { BookOpenIcon as BookOpen } from "@phosphor-icons/react/dist/csr/BookOpen";
+import { ArrowSquareOutIcon as ExternalLink } from "@phosphor-icons/react/dist/csr/ArrowSquareOut";
+import { FileTextIcon as FileText } from "@phosphor-icons/react/dist/csr/FileText";
+import { LinkIcon as Link2 } from "@phosphor-icons/react/dist/csr/Link";
+import { LinkBreakIcon as Link2Off } from "@phosphor-icons/react/dist/csr/LinkBreak";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { ArrowsOutSimpleIcon as MoveDiagonal2 } from "@phosphor-icons/react/dist/csr/ArrowsOutSimple";
+import { PaperclipIcon as Paperclip } from "@phosphor-icons/react/dist/csr/Paperclip";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
+import { NoteIcon as StickyNote } from "@phosphor-icons/react/dist/csr/Note";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import type { ThoughtNode as ThoughtNodeType } from '../types';
 import { useStore } from '../store';
 import { useZoomTier } from '../lib/use-map-mode';
@@ -344,7 +355,7 @@ export default function ContentNode({ id, data, selected }: NodeProps<ThoughtNod
                     onClick={(e) => { e.stopPropagation(); removeAttachment(id, att.id); }}
                     className="absolute top-1.5 right-1.5 bg-ink/60 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                   >
-                    <X size={13} strokeWidth={2} />
+                    <X data-icon="x" size={13} strokeWidth={2} />
                   </button>
                   {/* Extraction panel: SEE what the model read, fix it, or redo it —
                       this text is what downstream context receives as the image's index */}
@@ -391,7 +402,7 @@ export default function ContentNode({ id, data, selected }: NodeProps<ThoughtNod
                     onClick={(e) => { e.stopPropagation(); removeAttachment(id, att.id); }}
                     className="absolute top-1.5 right-1.5 bg-ink/60 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                   >
-                    <X size={13} strokeWidth={2} />
+                    <X data-icon="x" size={13} strokeWidth={1.75} />
                   </button>
                 </div>
               ) : (
@@ -404,7 +415,7 @@ export default function ContentNode({ id, data, selected }: NodeProps<ThoughtNod
                     onClick={(e) => { e.stopPropagation(); removeAttachment(id, att.id); }}
                     className="text-ink-faint hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
                   >
-                    <X size={13} strokeWidth={1.75} />
+                    <X data-icon="x" size={13} />
                   </button>
                 </div>
               )

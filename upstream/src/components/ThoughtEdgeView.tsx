@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { BaseEdge, EdgeLabelRenderer, type EdgeProps } from '@xyflow/react';
-import { X } from 'lucide-react';
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../store';
 import { routeEdge } from '../lib/edge-path';
 import { walkUpAncestors } from '../lib/graph';
@@ -134,7 +134,7 @@ export default function ThoughtEdgeView({
                 className="w-6 h-6 rounded-full bg-card border border-line shadow-md flex items-center justify-center text-ink-faint hover:text-red-500 hover:border-red-300 transition-colors"
                 title={t('canvas.deleteEdgeTitle')}
               >
-                <X size={13} strokeWidth={2} />
+                <X data-icon="x" size={13} strokeWidth={2} />
               </button>
             </div>
           </div>

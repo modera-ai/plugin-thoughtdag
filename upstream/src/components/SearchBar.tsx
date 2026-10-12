@@ -1,5 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Archive, FileText, Frame, Link2, MessageSquare, Minimize2, Search, StickyNote, X } from 'lucide-react';
+import { ArchiveIcon as Archive } from "@phosphor-icons/react/dist/csr/Archive";
+import { FileTextIcon as FileText } from "@phosphor-icons/react/dist/csr/FileText";
+import { FrameCornersIcon as Frame } from "@phosphor-icons/react/dist/csr/FrameCorners";
+import { LinkIcon as Link2 } from "@phosphor-icons/react/dist/csr/Link";
+import { ChatIcon as MessageSquare } from "@phosphor-icons/react/dist/csr/Chat";
+import { ArrowsInIcon as Minimize2 } from "@phosphor-icons/react/dist/csr/ArrowsIn";
+import { MagnifyingGlassIcon as Search } from "@phosphor-icons/react/dist/csr/MagnifyingGlass";
+import { NoteIcon as StickyNote } from "@phosphor-icons/react/dist/csr/Note";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../store';
 import { useUiStore } from '../lib/ui-store';
 import { searchCanvas, type SearchHit } from '../lib/canvas-search';
@@ -116,7 +124,7 @@ export default function SearchBar({
             </span>
           )}
           <button onClick={onClose} className="text-ink-faint hover:text-ink transition-colors shrink-0">
-            <X size={14} strokeWidth={1.75} />
+            <X data-icon="x" size={14} strokeWidth={1.75} />
           </button>
         </div>
 

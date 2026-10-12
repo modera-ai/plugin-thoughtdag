@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Info, Loader2, Scale } from 'lucide-react';
+import { InfoIcon as Info } from "@phosphor-icons/react/dist/csr/Info";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { ScalesIcon as Scale } from "@phosphor-icons/react/dist/csr/Scales";
 import { useUiStore } from '../../lib/ui-store';
 import { judgeSelfTest, storedOpenRouterKey, judgeConfigured, judgeTripped, effectiveProvider, type JudgeProviderId, type JudgeResult } from '../../lib/judge';
 import { useT, fmt } from '../../i18n';

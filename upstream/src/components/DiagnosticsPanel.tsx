@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { Crosshair, Stethoscope, Trash2 } from 'lucide-react';
+import { CrosshairIcon as Crosshair } from "@phosphor-icons/react/dist/csr/Crosshair";
+import { StethoscopeIcon as Stethoscope } from "@phosphor-icons/react/dist/csr/Stethoscope";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
 import { useStore } from '../store';
 import { runDiagnostics, type Finding } from '../lib/diagnostics';
 import { useT, fmt } from '../i18n';

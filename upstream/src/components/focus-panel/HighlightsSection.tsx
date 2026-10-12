@@ -1,5 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
-import { ChevronRight, GitBranch, Scissors, Star, Tag, X } from 'lucide-react';
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { GitBranchIcon as GitBranch } from "@phosphor-icons/react/dist/csr/GitBranch";
+import { ScissorsIcon as Scissors } from "@phosphor-icons/react/dist/csr/Scissors";
+import { StarIcon as Star } from "@phosphor-icons/react/dist/csr/Star";
+import { TagIcon as Tag } from "@phosphor-icons/react/dist/csr/Tag";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../../store';
 import { isImeComposing } from '../../utils';
 import { useT } from '../../i18n';
@@ -67,7 +72,7 @@ export default function HighlightsSection({
                       onClick={() => removeHighlight(nodeId, h.id)}
                       className="text-amber-300 hover:text-red-500 transition-colors shrink-0 opacity-0 group-hover/hl:opacity-100"
                     >
-                      <X size={14} strokeWidth={1.75} />
+                      <X data-icon="x" size={14} strokeWidth={1.75} />
                     </button>}
                   </div>
                 ))}
@@ -127,7 +132,7 @@ export default function HighlightsSection({
                     onClick={() => { setHighlightExploreContext(''); setHighlightExploreInput(''); }}
                     className="text-xs text-ink-faint hover:text-ink-muted px-1.5 py-2 transition-colors shrink-0"
                   >
-                    <X size={14} strokeWidth={1.75} />
+                    <X data-icon="x" size={14} />
                   </button>
                 </div>
               )}

@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
-import { ChevronUp, GitBranch, Paperclip, Send, X } from 'lucide-react';
+import { CaretUpIcon as ChevronUp } from "@phosphor-icons/react/dist/csr/CaretUp";
+import { GitBranchIcon as GitBranch } from "@phosphor-icons/react/dist/csr/GitBranch";
+import { PaperclipIcon as Paperclip } from "@phosphor-icons/react/dist/csr/Paperclip";
+import { PaperPlaneTiltIcon as Send } from "@phosphor-icons/react/dist/csr/PaperPlaneTilt";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../../store';
 import { shownStaleIds } from '../../lib/stale-judge';
 import { isImeComposing } from '../../utils';
@@ -163,7 +167,7 @@ export default function FollowUpInput({
           <span className="text-warm font-medium shrink-0"><GitBranch size={13} strokeWidth={1.75} className="inline" /> {t('node.exploringFrom')}</span>
           <span className="flex-1 min-w-0 truncate">&ldquo;{branchContext.slice(0, 90)}{branchContext.length > 90 ? '…' : ''}&rdquo;</span>
           <button onClick={onClearBranchContext} className="text-ink-faint hover:text-red-500 transition-colors shrink-0">
-            <X size={13} strokeWidth={2} />
+            <X data-icon="x" size={13} strokeWidth={2} />
           </button>
         </div>
       )}
@@ -177,7 +181,7 @@ export default function FollowUpInput({
               <span className="max-w-[140px] truncate">{att.name}</span>
               {att.isExtracting && <span className="text-ink-faint">…</span>}
               <button onClick={() => setPendingAttachments((prev) => prev.filter((a) => a.id !== att.id))} className="text-ink-faint hover:text-red-500 transition-colors">
-                <X size={11} strokeWidth={2} />
+                <X data-icon="x" size={11} strokeWidth={2} />
               </button>
             </span>
           ))}
@@ -229,7 +233,7 @@ export default function FollowUpInput({
           disabled={!continueInput.trim()}
           className="text-ink-faint hover:text-accent disabled:opacity-30 disabled:hover:text-ink-faint transition-colors shrink-0 rounded-full w-7 h-7 flex items-center justify-center hover:bg-line"
         >
-          <Send size={18} strokeWidth={1.75} />
+          <Send data-icon="send" size={18} strokeWidth={1.75} />
         </button>
       </div>
       <div className="flex gap-4 mt-1.5 px-1">

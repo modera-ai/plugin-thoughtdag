@@ -1,5 +1,9 @@
 import { Handle, Position, type NodeProps } from '@xyflow/react';
-import { Globe, GraduationCap, MessageCircleQuestion, SquareTerminal, Trash2 } from 'lucide-react';
+import { GlobeIcon as Globe } from "@phosphor-icons/react/dist/csr/Globe";
+import { GraduationCapIcon as GraduationCap } from "@phosphor-icons/react/dist/csr/GraduationCap";
+import { ChatCircleDotsIcon as MessageCircleQuestion } from "@phosphor-icons/react/dist/csr/ChatCircleDots";
+import { TerminalWindowIcon as SquareTerminal } from "@phosphor-icons/react/dist/csr/TerminalWindow";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
 import type { ThoughtNode as ThoughtNodeType, ThoughtData } from '../types';
 import { useStore } from '../store';
 import { effectiveRoles } from '../lib/role-templates';

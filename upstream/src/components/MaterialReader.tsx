@@ -1,5 +1,22 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown, ChevronRight, Crosshair, FileText, Highlighter, Link2, Loader2, Maximize2, PanelLeft, Pencil, RefreshCw, ScanText, Send, Sparkles, StickyNote, X, ZoomIn, ZoomOut } from 'lucide-react';
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { CrosshairIcon as Crosshair } from "@phosphor-icons/react/dist/csr/Crosshair";
+import { FileTextIcon as FileText } from "@phosphor-icons/react/dist/csr/FileText";
+import { HighlighterIcon as Highlighter } from "@phosphor-icons/react/dist/csr/Highlighter";
+import { LinkIcon as Link2 } from "@phosphor-icons/react/dist/csr/Link";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { ArrowsOutIcon as Maximize2 } from "@phosphor-icons/react/dist/csr/ArrowsOut";
+import { SidebarSimpleIcon as PanelLeft } from "@phosphor-icons/react/dist/csr/SidebarSimple";
+import { PencilIcon as Pencil } from "@phosphor-icons/react/dist/csr/Pencil";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
+import { ScanIcon as ScanText } from "@phosphor-icons/react/dist/csr/Scan";
+import { PaperPlaneTiltIcon as Send } from "@phosphor-icons/react/dist/csr/PaperPlaneTilt";
+import { SparkleIcon as Sparkles } from "@phosphor-icons/react/dist/csr/Sparkle";
+import { NoteIcon as StickyNote } from "@phosphor-icons/react/dist/csr/Note";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
+import { MagnifyingGlassPlusIcon as ZoomIn } from "@phosphor-icons/react/dist/csr/MagnifyingGlassPlus";
+import { MagnifyingGlassMinusIcon as ZoomOut } from "@phosphor-icons/react/dist/csr/MagnifyingGlassMinus";
 import type { PDFDocumentProxy } from 'pdfjs-dist';
 import type { Attachment, ThoughtNode } from '../types';
 import { useStore } from '../store';
@@ -902,7 +919,7 @@ function ReaderOverlay({ node, onLocate, dock }: { node: ThoughtNode; onLocate: 
             </button>
           )}
           <button onClick={close} title={t('panel.close')} className={iconButton}>
-            <X size={16} strokeWidth={1.75} />
+            <X data-icon="x" size={16} strokeWidth={1.75} />
           </button>
         </div>
 
@@ -1067,7 +1084,7 @@ function ReaderOverlay({ node, onLocate, dock }: { node: ThoughtNode; onLocate: 
                 title={t('reader.threadClose')}
                 className="w-6 h-6 rounded-md text-ink-faint hover:text-ink hover:bg-wash flex items-center justify-center transition-colors shrink-0"
               >
-                <X size={14} strokeWidth={1.75} />
+                <X data-icon="x" size={14} strokeWidth={1.75} />
               </button>
             </div>
             <div ref={railRef} onMouseUp={handleRailMouseUp} className="flex-1 min-h-0 overflow-y-auto px-4 py-3 space-y-4">
@@ -1110,7 +1127,7 @@ function ReaderOverlay({ node, onLocate, dock }: { node: ThoughtNode; onLocate: 
                 disabled={!followDraft.trim()}
                 className="w-8 h-8 rounded-lg bg-accent text-white flex items-center justify-center disabled:opacity-30 transition-opacity shrink-0"
               >
-                <Send size={14} strokeWidth={1.75} />
+                <Send data-icon="send" size={14} strokeWidth={1.75} />
               </button>
             </div>
           </div>
@@ -1135,7 +1152,7 @@ function ReaderOverlay({ node, onLocate, dock }: { node: ThoughtNode; onLocate: 
             disabled={!wholeDraft.trim()}
             className="w-8 h-8 rounded-lg bg-accent text-white flex items-center justify-center disabled:opacity-30 transition-opacity shrink-0"
           >
-            <Send size={14} strokeWidth={1.75} />
+            <Send data-icon="send" size={14} />
           </button>
           {grownChildren.length > 0 && (
             <div className="flex flex-wrap items-center content-start gap-1.5 max-w-[45%] shrink-0 max-h-[3.75rem] overflow-y-auto" data-grown-chips>
@@ -1241,7 +1258,7 @@ function ReaderOverlay({ node, onLocate, dock }: { node: ThoughtNode; onLocate: 
               disabled={!draft.trim()}
               className="w-8 h-8 rounded-lg bg-accent text-white flex items-center justify-center disabled:opacity-30 transition-opacity shrink-0"
             >
-              <Send size={14} strokeWidth={1.75} />
+              <Send data-icon="send" size={14} />
             </button>
           </div>
         </div>
@@ -1263,7 +1280,7 @@ function ReaderOverlay({ node, onLocate, dock }: { node: ThoughtNode; onLocate: 
           <Maximize2 size={14} strokeWidth={1.75} />
         </button>
         <button onClick={close} title={t('panel.close')} className={iconButton}>
-          <X size={15} strokeWidth={1.75} />
+          <X data-icon="x" size={15} strokeWidth={1.75} />
         </button>
       </div>
     );

@@ -1,5 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Loader2, Pencil, Plus, Sparkles, Square, Tags, Trash2 } from 'lucide-react';
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { PencilIcon as Pencil } from "@phosphor-icons/react/dist/csr/Pencil";
+import { PlusIcon as Plus } from "@phosphor-icons/react/dist/csr/Plus";
+import { SparkleIcon as Sparkles } from "@phosphor-icons/react/dist/csr/Sparkle";
+import { SquareIcon as Square } from "@phosphor-icons/react/dist/csr/Square";
+import { TagIcon as Tags } from "@phosphor-icons/react/dist/csr/Tag";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
 import { whyBridge, hasWhy } from '../../lib/why-bridge';
 import { judgeCall } from '../../lib/judge';
 import { proposeTopics, startLabeling, LABEL_CHUNK } from '../../lib/topics';

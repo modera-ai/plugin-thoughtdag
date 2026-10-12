@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Plus, Trash2, X } from 'lucide-react';
+import { PlusIcon as Plus } from "@phosphor-icons/react/dist/csr/Plus";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { effectiveRoles, type EffectiveRole } from '../../lib/role-templates';
 import { useUiStore } from '../../lib/ui-store';
 import { generateId } from '../../utils';
@@ -84,7 +86,7 @@ export default function RoleManagerModal() {
           <span className="text-sm font-semibold text-ink">{t('roles.managerTitle')}</span>
           <span className="text-2xs text-ink-faint flex-1">{t('roles.hint')}</span>
           <button onClick={() => setOpen(false)} className="text-ink-faint hover:text-ink w-7 h-7 rounded-lg hover:bg-wash flex items-center justify-center transition-colors shrink-0">
-            <X size={15} strokeWidth={1.75} />
+            <X data-icon="x" size={15} strokeWidth={1.75} />
           </button>
         </div>
         <div className="flex-1 min-h-0 overflow-y-auto px-5 py-3 space-y-2">

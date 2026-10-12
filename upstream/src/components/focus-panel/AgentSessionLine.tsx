@@ -1,4 +1,6 @@
-import { FolderOpen, SquareTerminal, Pin } from 'lucide-react';
+import { FolderOpenIcon as FolderOpen } from "@phosphor-icons/react/dist/csr/FolderOpen";
+import { TerminalWindowIcon as SquareTerminal } from "@phosphor-icons/react/dist/csr/TerminalWindow";
+import { PushPinIcon as Pin } from "@phosphor-icons/react/dist/csr/PushPin";
 import { useT } from '../../i18n';
 import { useProjects, setProjectAgentCwd } from '../../store/projects';
 import { toast } from '../../lib/ui-store';

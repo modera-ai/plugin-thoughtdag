@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { CaretLeftIcon as ChevronLeft } from "@phosphor-icons/react/dist/csr/CaretLeft";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useUiStore } from '../lib/ui-store';
 import { useT, useI18n } from '../i18n';
 import { COLORS } from '../lib/constants';
@@ -203,7 +205,7 @@ export default function Tutorial() {
             <p className="text-xs text-ink-faint truncate">{t('tutorial.subtitle')}</p>
           </div>
           <button onClick={() => setOpen(false)} className="text-ink-faint hover:text-ink transition-colors mt-1">
-            <X size={18} strokeWidth={1.75} />
+            <X data-icon="x" size={18} strokeWidth={1.75} />
           </button>
         </div>
 

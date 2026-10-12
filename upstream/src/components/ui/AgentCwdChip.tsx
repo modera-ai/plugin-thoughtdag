@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { FolderOpen, Check, ChevronDown, ShieldCheck, ShieldOff, X } from 'lucide-react';
+import { FolderOpenIcon as FolderOpen } from "@phosphor-icons/react/dist/csr/FolderOpen";
+import { CheckIcon as Check } from "@phosphor-icons/react/dist/csr/Check";
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { ShieldCheckIcon as ShieldCheck } from "@phosphor-icons/react/dist/csr/ShieldCheck";
+import { ShieldSlashIcon as ShieldOff } from "@phosphor-icons/react/dist/csr/ShieldSlash";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useT } from '../../i18n';
 import { useUiStore } from '../../lib/ui-store';
 import { useProjects, setProjectAgentCwd } from '../../store/projects';
@@ -141,7 +146,7 @@ export default function AgentCwdChip() {
                 <div key={a} className="px-3 py-1 text-xs flex items-center gap-2 min-w-0" data-agent-guard-allowed={a}>
                   <span className="flex-1 min-w-0 truncate text-ink-muted font-mono" title={a}>{a}</span>
                   <button onClick={() => void allowLocation(a, true)} className="text-ink-faint hover:text-red-500 shrink-0" title={t('agent.guardRemove')}>
-                    <X size={12} strokeWidth={2} />
+                    <X data-icon="x" size={12} strokeWidth={2} />
                   </button>
                 </div>
               ))}

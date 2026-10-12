@@ -1,5 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { Check, ChevronDown, Cpu, KeyRound, RefreshCw, Info, Loader2, ChevronRight, Scale } from 'lucide-react';
+import { CheckIcon as Check } from "@phosphor-icons/react/dist/csr/Check";
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { CpuIcon as Cpu } from "@phosphor-icons/react/dist/csr/Cpu";
+import { KeyIcon as KeyRound } from "@phosphor-icons/react/dist/csr/Key";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
+import { InfoIcon as Info } from "@phosphor-icons/react/dist/csr/Info";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { ScalesIcon as Scale } from "@phosphor-icons/react/dist/csr/Scales";
 import { toast, useUiStore } from '../../lib/ui-store';
 import { profileLines } from '../../lib/profile';
 import { useModels, setModelsCache, ensureAgentsFresh, recheckAgents, type ModelInfo } from '../../lib/use-models';

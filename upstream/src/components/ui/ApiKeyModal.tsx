@@ -1,6 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Camera, ExternalLink, KeyRound, Loader2, Plus, Trash2, X, Pencil, Scale } from 'lucide-react';
+import { CameraIcon as Camera } from "@phosphor-icons/react/dist/csr/Camera";
+import { ArrowSquareOutIcon as ExternalLink } from "@phosphor-icons/react/dist/csr/ArrowSquareOut";
+import { KeyIcon as KeyRound } from "@phosphor-icons/react/dist/csr/Key";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { PlusIcon as Plus } from "@phosphor-icons/react/dist/csr/Plus";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
+import { PencilIcon as Pencil } from "@phosphor-icons/react/dist/csr/Pencil";
+import { ScalesIcon as Scale } from "@phosphor-icons/react/dist/csr/Scales";
 import { startOpenRouterOAuth } from '../../lib/openrouter-oauth';
 import { useUiStore, toast } from '../../lib/ui-store';
 import { useModels, setModelsCache } from '../../lib/use-models';
@@ -235,7 +243,7 @@ export default function ApiKeyModal() {
             </div>
           </div>
           <button onClick={() => { setOpen(false); resetAdd(); }} className="text-ink-faint hover:text-ink w-7 h-7 rounded-lg hover:bg-wash flex items-center justify-center transition-colors shrink-0">
-            <X size={15} strokeWidth={1.75} />
+            <X data-icon="x" size={15} strokeWidth={1.75} />
           </button>
         </div>
 

@@ -1,4 +1,5 @@
-import { Globe, GraduationCap } from 'lucide-react';
+import { GlobeIcon as Globe } from "@phosphor-icons/react/dist/csr/Globe";
+import { GraduationCapIcon as GraduationCap } from "@phosphor-icons/react/dist/csr/GraduationCap";
 import { hasWhy } from '../../lib/why-bridge';
 import { useUiStore } from '../../lib/ui-store';
 import { useStore } from '../../store';

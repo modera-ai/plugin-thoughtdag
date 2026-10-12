@@ -1,5 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
-import { Archive, ChevronDown, Dna, FolderOpen, Loader2, Map as MapIcon, MessageSquare, Pencil, Plus, RefreshCw, Trash2, Upload } from 'lucide-react';
+import { ArchiveIcon as Archive } from "@phosphor-icons/react/dist/csr/Archive";
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { DnaIcon as Dna } from "@phosphor-icons/react/dist/csr/Dna";
+import { FolderOpenIcon as FolderOpen } from "@phosphor-icons/react/dist/csr/FolderOpen";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { MapTrifoldIcon as MapIcon } from "@phosphor-icons/react/dist/csr/MapTrifold";
+import { ChatIcon as MessageSquare } from "@phosphor-icons/react/dist/csr/Chat";
+import { PencilIcon as Pencil } from "@phosphor-icons/react/dist/csr/Pencil";
+import { PlusIcon as Plus } from "@phosphor-icons/react/dist/csr/Plus";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
+import { UploadIcon as Upload } from "@phosphor-icons/react/dist/csr/Upload";
 import SessionAtlas from './SessionAtlas';
 import HarnessViewSwitch from './ui/HarnessViewSwitch';
 import { knownSessionIds } from '../lib/atlas/discover';

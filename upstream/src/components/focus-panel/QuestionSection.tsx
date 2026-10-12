@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Check, X } from 'lucide-react';
+import { CheckIcon as Check } from "@phosphor-icons/react/dist/csr/Check";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../../store';
 import { isImeComposing } from '../../utils';
 import { useT } from '../../i18n';
@@ -117,7 +118,7 @@ export default function QuestionSection({
                 className="text-xs text-ink-muted hover:text-red-500 hover:bg-wash px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1"
                 data-edit-cancel
               >
-                <X size={12} strokeWidth={2} /> {t('question.editCancel')}
+                <X data-icon="x" size={12} strokeWidth={2} /> {t('question.editCancel')}
               </button>
               <button
                 onMouseDown={(e) => e.preventDefault()}

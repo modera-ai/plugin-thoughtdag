@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { ShieldAlert, MessageCircleQuestion, ChevronDown, ChevronRight } from 'lucide-react';
+import { ShieldWarningIcon as ShieldAlert } from "@phosphor-icons/react/dist/csr/ShieldWarning";
+import { ChatCircleDotsIcon as MessageCircleQuestion } from "@phosphor-icons/react/dist/csr/ChatCircleDots";
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
 import { useT } from '../../i18n';
 import { useStore } from '../../store';
 import { answerApproval, type QuestionAnswer } from '../../lib/api';

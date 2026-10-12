@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
-import { ChevronDown, ChevronRight, Loader2, Quote, Download } from 'lucide-react';
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { QuotesIcon as Quote } from "@phosphor-icons/react/dist/csr/Quotes";
+import { DownloadIcon as Download } from "@phosphor-icons/react/dist/csr/Download";
 import { whyBridge } from '../../lib/why-bridge';
 import { citeHit } from '../../lib/recall';
 import { useStore } from '../../store';

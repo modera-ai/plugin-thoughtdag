@@ -3,7 +3,24 @@ import RecallResults from './ui/RecallResults';
 import MemoryPage from './ui/MemoryPage';
 import { whyBridge } from '../lib/why-bridge';
 import { createPortal } from 'react-dom';
-import { AppWindow, Archive, ArrowDownUp, Link2, Folder, FolderOpen, Loader2, Plug, RefreshCw, RotateCcw, Search, Square, SquareCheckBig, SquareTerminal, Import, Trash2, X, Inbox } from 'lucide-react';
+import { AppWindowIcon as AppWindow } from "@phosphor-icons/react/dist/csr/AppWindow";
+import { ArchiveIcon as Archive } from "@phosphor-icons/react/dist/csr/Archive";
+import { ArrowsDownUpIcon as ArrowDownUp } from "@phosphor-icons/react/dist/csr/ArrowsDownUp";
+import { LinkIcon as Link2 } from "@phosphor-icons/react/dist/csr/Link";
+import { FolderIcon as Folder } from "@phosphor-icons/react/dist/csr/Folder";
+import { FolderOpenIcon as FolderOpen } from "@phosphor-icons/react/dist/csr/FolderOpen";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { PlugIcon as Plug } from "@phosphor-icons/react/dist/csr/Plug";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
+import { ArrowCounterClockwiseIcon as RotateCcw } from "@phosphor-icons/react/dist/csr/ArrowCounterClockwise";
+import { MagnifyingGlassIcon as Search } from "@phosphor-icons/react/dist/csr/MagnifyingGlass";
+import { SquareIcon as Square } from "@phosphor-icons/react/dist/csr/Square";
+import { CheckSquareIcon as SquareCheckBig } from "@phosphor-icons/react/dist/csr/CheckSquare";
+import { TerminalWindowIcon as SquareTerminal } from "@phosphor-icons/react/dist/csr/TerminalWindow";
+import { ArrowSquareInIcon as Import } from "@phosphor-icons/react/dist/csr/ArrowSquareIn";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
+import { TrayIcon as Inbox } from "@phosphor-icons/react/dist/csr/Tray";
 import { scanSessions, groupByCwd, disabledRoots, setRootDisabled, type SessionCard, type AtlasGroup } from '../lib/atlas/discover';
 import { diffAgainstWatermark, markSeen, markAllSeen, changeKeyOf, type CardChange } from '../lib/atlas/watermark';
 import { useProjects, switchProject, setProjectArchived, subscribedSessionIds } from '../store/projects';
@@ -443,7 +460,7 @@ export default function SessionAtlas({ onClose, onSwitched, focusSessionId, init
           </button>
           )}
           <button onClick={onClose} className="text-ink-faint hover:text-ink p-1.5 rounded-lg hover:bg-wash transition-colors" data-atlas-close>
-            <X size={18} strokeWidth={1.75} />
+            <X data-icon="x" size={18} strokeWidth={1.75} />
           </button>
         </div>
         <div className="flex items-center gap-3 px-5 py-2 border-b border-line shrink-0" data-atlas-tabs>
@@ -797,7 +814,7 @@ export default function SessionAtlas({ onClose, onSwitched, focusSessionId, init
                 </>
               )}
             <button className="text-ink-faint hover:text-ink p-1" onClick={() => setPicked(new Map())} title={t('common.cancel')}>
-              <X size={14} strokeWidth={1.75} />
+              <X data-icon="x" size={14} strokeWidth={1.75} />
             </button>
           </div>
         )}

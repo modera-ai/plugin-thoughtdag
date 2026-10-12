@@ -2,7 +2,29 @@ import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import { describeModel } from '../lib/use-models';
 import { toolFingerprint, turnComposition, footprint, conclusionOf } from '../lib/turn-insight';
 import { Handle, Position, useReactFlow, useUpdateNodeInternals, type NodeProps } from '@xyflow/react';
-import { AlertTriangle, Archive, BookOpen, Check, ChevronDown, ChevronLeft, ChevronRight, Copy, Eye, GitBranch, Globe, Hourglass, Minimize2, Paperclip, RefreshCw, Send, Split, Square, Star, Trash2, UserRound, X, Pencil } from 'lucide-react';
+import { WarningIcon as AlertTriangle } from "@phosphor-icons/react/dist/csr/Warning";
+import { ArchiveIcon as Archive } from "@phosphor-icons/react/dist/csr/Archive";
+import { BookOpenIcon as BookOpen } from "@phosphor-icons/react/dist/csr/BookOpen";
+import { CheckIcon as Check } from "@phosphor-icons/react/dist/csr/Check";
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { CaretLeftIcon as ChevronLeft } from "@phosphor-icons/react/dist/csr/CaretLeft";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { CopyIcon as Copy } from "@phosphor-icons/react/dist/csr/Copy";
+import { EyeIcon as Eye } from "@phosphor-icons/react/dist/csr/Eye";
+import { GitBranchIcon as GitBranch } from "@phosphor-icons/react/dist/csr/GitBranch";
+import { GlobeIcon as Globe } from "@phosphor-icons/react/dist/csr/Globe";
+import { HourglassIcon as Hourglass } from "@phosphor-icons/react/dist/csr/Hourglass";
+import { ArrowsInIcon as Minimize2 } from "@phosphor-icons/react/dist/csr/ArrowsIn";
+import { PaperclipIcon as Paperclip } from "@phosphor-icons/react/dist/csr/Paperclip";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
+import { PaperPlaneTiltIcon as Send } from "@phosphor-icons/react/dist/csr/PaperPlaneTilt";
+import { GitForkIcon as Split } from "@phosphor-icons/react/dist/csr/GitFork";
+import { SquareIcon as Square } from "@phosphor-icons/react/dist/csr/Square";
+import { StarIcon as Star } from "@phosphor-icons/react/dist/csr/Star";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
+import { UserIcon as UserRound } from "@phosphor-icons/react/dist/csr/User";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
+import { PencilIcon as Pencil } from "@phosphor-icons/react/dist/csr/Pencil";
 import 'katex/dist/katex.min.css';
 
 /** A tool's status line standing in for the answer while it runs (see
@@ -31,7 +53,7 @@ import { levelText } from '../lib/ladder-core';
 import { usePlaqueClip } from '../lib/use-plaque-clip';
 import { ApprovalCard } from './ui/ApprovalCard';
 import { AgentTrace } from './ui/AgentTrace';
-import { SquareTerminal } from 'lucide-react';
+import { TerminalWindowIcon as SquareTerminal } from "@phosphor-icons/react/dist/csr/TerminalWindow";
 import { useT, fmt } from '../i18n';
 import MentionSurface from './ui/NodeMention';
 import { useMentions } from '../lib/mentions';
@@ -644,7 +666,7 @@ export default function ThoughtNode({ id, data }: NodeProps<ThoughtNodeType>) {
           )}
           {!(isParadigmNode && runLocked) && !isViewerMode && (
             <button onClick={() => deleteNode(id)} className="text-ink-faint hover:text-red-500 hover:bg-red-50 rounded-full w-7 h-7 flex items-center justify-center transition-colors" title={t('common.delete')}>
-              <X size={16} strokeWidth={1.75} />
+              <X data-icon="x" size={16} strokeWidth={1.75} />
             </button>
           )}
         </div>
@@ -717,7 +739,7 @@ export default function ThoughtNode({ id, data }: NodeProps<ThoughtNodeType>) {
                     className="text-xs text-ink-muted hover:text-red-500 hover:bg-wash px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1"
                     data-edit-cancel
                   >
-                    <X size={12} strokeWidth={2} /> {t('question.editCancel')}
+                    <X data-icon="x" size={12} strokeWidth={2} /> {t('question.editCancel')}
                   </button>
                   <button
                     onMouseDown={(e) => e.preventDefault()}
@@ -737,7 +759,7 @@ export default function ThoughtNode({ id, data }: NodeProps<ThoughtNodeType>) {
                     disabled={!editValue.trim()}
                     className="text-xs bg-warm hover:opacity-85 disabled:opacity-30 disabled:cursor-not-allowed text-white px-4 py-1.5 rounded-lg transition-all flex items-center gap-1.5"
                   >
-                    <Send size={12} strokeWidth={1.75} /> {t('paradigm.start')}
+                    <Send data-icon="send" size={12} strokeWidth={1.75} /> {t('paradigm.start')}
                   </button>
                 </div>
               )}
@@ -1055,7 +1077,7 @@ export default function ThoughtNode({ id, data }: NodeProps<ThoughtNodeType>) {
                   disabled={!inputValue.trim()}
                   className="text-ink-faint hover:text-accent disabled:opacity-30 disabled:hover:text-ink-faint transition-colors shrink-0 rounded-full w-7 h-7 flex items-center justify-center hover:bg-line"
                 >
-                  <Send size={18} strokeWidth={1.75} />
+                  <Send data-icon="send" size={18} strokeWidth={1.75} />
                 </button>
               </div>
             </div>

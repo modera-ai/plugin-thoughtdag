@@ -1,4 +1,4 @@
-import { Pencil } from 'lucide-react';
+import { PencilIcon as Pencil } from "@phosphor-icons/react/dist/csr/Pencil";
 import { effectiveRoles } from '../../lib/role-templates';
 import { useUiStore } from '../../lib/ui-store';
 import { useI18n, useT } from '../../i18n';

@@ -1,5 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
-import { Archive, ArchiveRestore, ClipboardCopy, Copy, Ellipsis, FileDown, GitFork, RefreshCw, Split, Square, Trash2, Undo2 } from 'lucide-react';
+import { ArchiveIcon as Archive } from "@phosphor-icons/react/dist/csr/Archive";
+import { TrayArrowUpIcon as ArchiveRestore } from "@phosphor-icons/react/dist/csr/TrayArrowUp";
+import { ClipboardTextIcon as ClipboardCopy } from "@phosphor-icons/react/dist/csr/ClipboardText";
+import { CopyIcon as Copy } from "@phosphor-icons/react/dist/csr/Copy";
+import { DotsThreeIcon as Ellipsis } from "@phosphor-icons/react/dist/csr/DotsThree";
+import { FileArrowDownIcon as FileDown } from "@phosphor-icons/react/dist/csr/FileArrowDown";
+import { GitForkIcon as GitFork } from "@phosphor-icons/react/dist/csr/GitFork";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
+import { GitForkIcon as Split } from "@phosphor-icons/react/dist/csr/GitFork";
+import { SquareIcon as Square } from "@phosphor-icons/react/dist/csr/Square";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
+import { ArrowBendUpLeftIcon as Undo2 } from "@phosphor-icons/react/dist/csr/ArrowBendUpLeft";
 import { useStore } from '../../store';
 import { contextChainMarkdown, downloadMarkdown, copyText } from '../../lib/export';
 import ModelPicker from '../ui/ModelPicker';

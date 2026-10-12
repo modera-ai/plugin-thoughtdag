@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Check, Copy, Eye, FileJson, ImageDown, X } from 'lucide-react';
+import { CheckIcon as Check } from "@phosphor-icons/react/dist/csr/Check";
+import { CopyIcon as Copy } from "@phosphor-icons/react/dist/csr/Copy";
+import { EyeIcon as Eye } from "@phosphor-icons/react/dist/csr/Eye";
+import { FileCodeIcon as FileJson } from "@phosphor-icons/react/dist/csr/FileCode";
+import { ImageIcon as ImageDown } from "@phosphor-icons/react/dist/csr/Image";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useUiStore } from '../../lib/ui-store';
 import { exportActiveProjectJson } from '../../lib/export';
 import { useT } from '../../i18n';
@@ -43,7 +48,7 @@ export default function ShareDialog() {
             <Eye size={15} strokeWidth={1.75} className="text-accent" /> {t('viewer.shareDialogTitle')}
           </div>
           <button onClick={close} className="w-7 h-7 rounded-lg text-ink-faint hover:bg-wash hover:text-ink flex items-center justify-center transition-colors">
-            <X size={15} strokeWidth={1.75} />
+            <X data-icon="x" size={15} strokeWidth={1.75} />
           </button>
         </div>
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { MessageSquare, X } from 'lucide-react';
+import { ChatIcon as MessageSquare } from "@phosphor-icons/react/dist/csr/Chat";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import type { ImportableConversation } from '../lib/import-chat';
 import { importChatConversations } from '../lib/export';
 import { useT, fmt } from '../i18n';
@@ -56,7 +57,7 @@ export default function ImportChatModal({
             <p className="text-xs text-ink-muted mt-1 leading-relaxed">{t('import.subtitle')}</p>
           </div>
           <button onClick={onClose} className="text-ink-faint hover:text-ink transition-colors shrink-0 mt-0.5">
-            <X size={16} strokeWidth={1.75} />
+            <X data-icon="x" size={16} strokeWidth={1.75} />
           </button>
         </div>
 

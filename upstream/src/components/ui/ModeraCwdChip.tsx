@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { Check, ChevronDown, FolderOpen, ShieldCheck, ShieldOff } from 'lucide-react';
+import { CheckIcon as Check } from "@phosphor-icons/react/dist/csr/Check";
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { FolderOpenIcon as FolderOpen } from "@phosphor-icons/react/dist/csr/FolderOpen";
+import { ShieldCheckIcon as ShieldCheck } from "@phosphor-icons/react/dist/csr/ShieldCheck";
+import { ShieldSlashIcon as ShieldOff } from "@phosphor-icons/react/dist/csr/ShieldSlash";
 import { useUiStore } from '../../lib/ui-store';
 import { getModelsOnce } from '../../lib/use-models';
 import { moderaFrontend } from '../../lib/modera-bridge';

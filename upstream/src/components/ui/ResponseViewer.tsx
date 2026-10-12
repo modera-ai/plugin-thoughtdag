@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { GitBranch, Loader2, Send, Star, X } from 'lucide-react';
+import { GitBranchIcon as GitBranch } from "@phosphor-icons/react/dist/csr/GitBranch";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { PaperPlaneTiltIcon as Send } from "@phosphor-icons/react/dist/csr/PaperPlaneTilt";
+import { StarIcon as Star } from "@phosphor-icons/react/dist/csr/Star";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../../store';
 import { useUiStore } from '../../lib/ui-store';
 import { Markdown, HighlightedMarkdown } from '../Markdown';
@@ -115,7 +119,7 @@ export default function ResponseViewer() {
         <div className="flex items-start gap-3 px-6 py-4 border-b border-line bg-card shrink-0">
           <div className="flex-1 min-w-0 text-sm font-semibold text-ink leading-snug line-clamp-2">{data.question}</div>
           <button onClick={close} title={t('panel.close')} className="w-7 h-7 rounded-lg text-ink-faint hover:bg-wash hover:text-ink flex items-center justify-center transition-colors shrink-0">
-            <X size={16} strokeWidth={1.75} />
+            <X data-icon="x" size={16} strokeWidth={1.75} />
           </button>
         </div>
         <div className="flex-1 min-h-0 overflow-y-auto px-8 py-6">
@@ -177,7 +181,7 @@ export default function ResponseViewer() {
                   <GitBranch size={13} strokeWidth={1.75} className="text-warm shrink-0 mt-0.5" />
                   <span className="italic leading-relaxed min-w-0 flex-1">“{branchFrom.slice(0, 160)}{branchFrom.length > 160 ? '…' : ''}”</span>
                   <button onClick={() => setBranchFrom('')} className="text-ink-faint hover:text-ink shrink-0" title={t('common.cancel')}>
-                    <X size={13} strokeWidth={1.75} />
+                    <X data-icon="x" size={13} strokeWidth={1.75} />
                   </button>
                 </div>
               )}
@@ -199,7 +203,7 @@ export default function ResponseViewer() {
                   title={t('viewerqa.askTitle')}
                   className="w-9 h-9 rounded-xl bg-accent text-white flex items-center justify-center hover:bg-accent-strong transition-colors disabled:opacity-30 shrink-0"
                 >
-                  <Send size={15} strokeWidth={1.75} />
+                  <Send data-icon="send" size={15} strokeWidth={1.75} />
                 </button>
               </div>
             </div>

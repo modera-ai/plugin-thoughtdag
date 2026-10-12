@@ -1,5 +1,10 @@
 import { useState, useRef, useCallback } from 'react';
-import { ChevronRight, FileText, Loader2, Paperclip, X, BookOpen } from 'lucide-react';
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { FileTextIcon as FileText } from "@phosphor-icons/react/dist/csr/FileText";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { PaperclipIcon as Paperclip } from "@phosphor-icons/react/dist/csr/Paperclip";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
+import { BookOpenIcon as BookOpen } from "@phosphor-icons/react/dist/csr/BookOpen";
 import { useStore } from '../../store';
 import { useUiStore } from '../../lib/ui-store';
 import { processFile, FILE_INPUT_ACCEPT } from '../../lib/attachments';
@@ -154,7 +159,7 @@ export default function AttachmentsSection({
                     onClick={() => removeAttachment(nodeId, att.id)}
                     className="text-ink-faint hover:text-red-500 transition-colors shrink-0 opacity-0 group-hover:opacity-100"
                   >
-                    <X size={14} strokeWidth={1.75} />
+                    <X data-icon="x" size={14} strokeWidth={1.75} />
                   </button>}
                 </div>
               ))}

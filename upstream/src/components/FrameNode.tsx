@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { NodeResizer, useStore as useRfStore, type NodeProps } from '@xyflow/react';
-import { Link2, Link2Off, Trash2 } from 'lucide-react';
+import { LinkIcon as Link2 } from "@phosphor-icons/react/dist/csr/Link";
+import { LinkBreakIcon as Link2Off } from "@phosphor-icons/react/dist/csr/LinkBreak";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
 import type { ThoughtNode as ThoughtNodeType } from '../types';
 import { useStore } from '../store';
 import { isImeComposing } from '../utils';

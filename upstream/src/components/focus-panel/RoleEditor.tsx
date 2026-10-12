@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { UserCog } from 'lucide-react';
+import { UserGearIcon as UserCog } from "@phosphor-icons/react/dist/csr/UserGear";
 import { useStore } from '../../store';
 import { isImeComposing } from '../../utils';
 import { useT } from '../../i18n';

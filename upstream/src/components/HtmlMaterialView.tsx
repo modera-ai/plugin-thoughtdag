@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Loader2 } from 'lucide-react';
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
 import type { Attachment } from '../types';
 import { buildReaderPages, type ReaderPage } from '../lib/html-material';
 import { toast } from '../lib/ui-store';

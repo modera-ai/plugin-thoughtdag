@@ -1,6 +1,9 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { History, ImageDown, Sparkles, X } from 'lucide-react';
+import { ClockCounterClockwiseIcon as History } from "@phosphor-icons/react/dist/csr/ClockCounterClockwise";
+import { ImageIcon as ImageDown } from "@phosphor-icons/react/dist/csr/Image";
+import { SparkleIcon as Sparkles } from "@phosphor-icons/react/dist/csr/Sparkle";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../../store';
 import { useUiStore } from '../../lib/ui-store';
 import { useDateLocale, useI18n, useT, fmt } from '../../i18n';
@@ -111,7 +114,7 @@ export default function TimelineOverviewModal({ onLocate }: { onLocate: (nodeId:
             {t('tmap.export')}
           </button>
           <button onClick={close} className="text-ink-faint hover:text-ink w-7 h-7 rounded-lg hover:bg-wash flex items-center justify-center transition-colors">
-            <X size={15} strokeWidth={1.75} />
+            <X data-icon="x" size={15} strokeWidth={1.75} />
           </button>
         </div>
 

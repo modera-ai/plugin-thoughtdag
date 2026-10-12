@@ -1,4 +1,5 @@
-import { Paperclip, UserCog } from 'lucide-react';
+import { PaperclipIcon as Paperclip } from "@phosphor-icons/react/dist/csr/Paperclip";
+import { UserGearIcon as UserCog } from "@phosphor-icons/react/dist/csr/UserGear";
 import { useT } from '../../i18n';
 import { isViewerMode } from '../../lib/viewer';
 import type { ThoughtData } from '../../types';

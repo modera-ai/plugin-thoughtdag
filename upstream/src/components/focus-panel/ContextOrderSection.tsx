@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowUp } from 'lucide-react';
+import { ArrowDownIcon as ArrowDown } from "@phosphor-icons/react/dist/csr/ArrowDown";
+import { ArrowUpIcon as ArrowUp } from "@phosphor-icons/react/dist/csr/ArrowUp";
 import { useStore } from '../../store';
 import { useT } from '../../i18n';
 

@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronRight, History, Loader2, X, RotateCcw } from 'lucide-react';
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { ClockCounterClockwiseIcon as History } from "@phosphor-icons/react/dist/csr/ClockCounterClockwise";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
+import { ArrowCounterClockwiseIcon as RotateCcw } from "@phosphor-icons/react/dist/csr/ArrowCounterClockwise";
 import { useStore } from '../../store';
 import { recallTokens, recallMore, recallHeld } from '../../lib/recall';
 import { JUDGE_LABELS, type JudgeProviderId } from '../../lib/judge';
@@ -80,7 +85,7 @@ export default function RecallSection({ nodeId, items, meta, recallOn, progress 
                   title={i.excluded ? t('panel.recallInclude') : t('panel.recallExclude')}
                   data-recall-item-toggle
                 >
-                  {i.excluded ? <RotateCcw size={12} strokeWidth={1.75} /> : <X size={12} strokeWidth={1.75} />}
+                  {i.excluded ? <RotateCcw size={12} strokeWidth={1.75} /> : <X data-icon="x" size={12} strokeWidth={1.75} />}
                 </button>
               </div>
               {unfolded === i.id && (

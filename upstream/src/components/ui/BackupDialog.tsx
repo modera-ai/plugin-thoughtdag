@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { FolderSync, X } from 'lucide-react';
+import { FolderSimpleIcon as FolderSync } from "@phosphor-icons/react/dist/csr/FolderSimple";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useUiStore, toast } from '../../lib/ui-store';
 import { backupSupported, enableAutoBackup, disableAutoBackup, backupActiveProject } from '../../lib/local-backup';
 import { useT, fmt } from '../../i18n';
@@ -31,7 +32,7 @@ export default function BackupDialog() {
             <FolderSync size={15} strokeWidth={1.75} className={dir ? 'text-emerald-600' : 'text-accent'} /> {t('backup.dialogTitle')}
           </div>
           <button onClick={close} className="w-7 h-7 rounded-lg text-ink-faint hover:bg-wash hover:text-ink flex items-center justify-center transition-colors">
-            <X size={15} strokeWidth={1.75} />
+            <X data-icon="x" size={15} strokeWidth={1.75} />
           </button>
         </div>
         <p className="text-xs text-ink-muted mb-3 leading-relaxed">{t('backup.dialogHow')}</p>

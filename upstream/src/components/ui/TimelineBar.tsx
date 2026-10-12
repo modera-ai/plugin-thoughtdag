@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { History } from 'lucide-react';
+import { ClockCounterClockwiseIcon as History } from "@phosphor-icons/react/dist/csr/ClockCounterClockwise";
 import { useReactFlow, useStore as useRfStore } from '@xyflow/react';
 import { useStore } from '../../store';
 import { useUiStore } from '../../lib/ui-store';

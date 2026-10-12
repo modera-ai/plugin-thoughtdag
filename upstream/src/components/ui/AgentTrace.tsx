@@ -1,4 +1,7 @@
-import { Loader2, Check, X, SquareTerminal } from 'lucide-react';
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { CheckIcon as Check } from "@phosphor-icons/react/dist/csr/Check";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
+import { TerminalWindowIcon as SquareTerminal } from "@phosphor-icons/react/dist/csr/TerminalWindow";
 import { useT } from '../../i18n';
 import type { AgentTraceEntry } from '../../types';
 
@@ -19,7 +22,7 @@ export function AgentTrace({ entries, compact }: { entries: AgentTraceEntry[]; c
       <ol className="space-y-0.5">
         {shown.map((e) => (
           <li key={e.id} className="flex items-center gap-1.5 text-2xs font-mono text-ink-muted min-w-0">
-            {e.status === 'running' ? <Loader2 size={11} className="animate-spin shrink-0 text-accent" /> : e.status === 'ok' ? <Check size={11} className="shrink-0 text-emerald-600" /> : <X size={11} className="shrink-0 text-red-500" />}
+            {e.status === 'running' ? <Loader2 size={11} className="animate-spin shrink-0 text-accent" /> : e.status === 'ok' ? <Check size={11} className="shrink-0 text-emerald-600" /> : <X data-icon="x" size={11} className="shrink-0 text-red-500" />}
             <span className="shrink-0 text-ink">{e.name}</span>
             <span className="truncate">{e.query}</span>
           </li>

@@ -1,6 +1,12 @@
 import { useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { BookOpen, FileText, Image as ImageIcon, Link2, Paperclip, StickyNote, X } from 'lucide-react';
+import { BookOpenIcon as BookOpen } from "@phosphor-icons/react/dist/csr/BookOpen";
+import { FileTextIcon as FileText } from "@phosphor-icons/react/dist/csr/FileText";
+import { ImageIcon as ImageIcon } from "@phosphor-icons/react/dist/csr/Image";
+import { LinkIcon as Link2 } from "@phosphor-icons/react/dist/csr/Link";
+import { PaperclipIcon as Paperclip } from "@phosphor-icons/react/dist/csr/Paperclip";
+import { NoteIcon as StickyNote } from "@phosphor-icons/react/dist/csr/Note";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../../store';
 import { useUiStore } from '../../lib/ui-store';
 import { useT, fmt } from '../../i18n';
@@ -98,7 +104,7 @@ export default function MaterialsOverviewModal({ onLocate }: { onLocate: (nodeId
           {sortBtn('time', t('hlov.byTime'))}
           {sortBtn('node', t('hlov.byNode'))}
           <button onClick={close} className="text-ink-faint hover:text-ink w-7 h-7 rounded-lg hover:bg-wash flex items-center justify-center transition-colors ml-1">
-            <X size={15} strokeWidth={1.75} />
+            <X data-icon="x" size={15} strokeWidth={1.75} />
           </button>
         </div>
 

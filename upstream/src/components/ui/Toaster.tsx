@@ -1,4 +1,7 @@
-import { AlertCircle, CheckCircle2, Info, X } from 'lucide-react';
+import { WarningCircleIcon as AlertCircle } from "@phosphor-icons/react/dist/csr/WarningCircle";
+import { CheckCircleIcon as CheckCircle2 } from "@phosphor-icons/react/dist/csr/CheckCircle";
+import { InfoIcon as Info } from "@phosphor-icons/react/dist/csr/Info";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useUiStore, type ToastItem } from '../../lib/ui-store';
 
 const KIND_STYLES: Record<ToastItem['kind'], string> = {
@@ -47,7 +50,7 @@ export default function Toaster() {
               onClick={() => dismissToast(t.id)}
               className="shrink-0 opacity-50 hover:opacity-100 transition-opacity"
             >
-              <X size={14} strokeWidth={1.75} />
+              <X data-icon="x" size={14} strokeWidth={1.75} />
             </button>
           </div>
         );

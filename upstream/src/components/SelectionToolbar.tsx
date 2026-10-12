@@ -1,5 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
-import { AlignVerticalJustifyStart, Archive, ClipboardList, Copy, FileDown, GitBranch, Highlighter, Layers, Trash2 } from 'lucide-react';
+import { AlignTopIcon as AlignVerticalJustifyStart } from "@phosphor-icons/react/dist/csr/AlignTop";
+import { ArchiveIcon as Archive } from "@phosphor-icons/react/dist/csr/Archive";
+import { ClipboardTextIcon as ClipboardList } from "@phosphor-icons/react/dist/csr/ClipboardText";
+import { CopyIcon as Copy } from "@phosphor-icons/react/dist/csr/Copy";
+import { FileArrowDownIcon as FileDown } from "@phosphor-icons/react/dist/csr/FileArrowDown";
+import { GitBranchIcon as GitBranch } from "@phosphor-icons/react/dist/csr/GitBranch";
+import { HighlighterIcon as Highlighter } from "@phosphor-icons/react/dist/csr/Highlighter";
+import { StackIcon as Layers } from "@phosphor-icons/react/dist/csr/Stack";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
 import { useStore } from '../store';
 import { confirmDialog } from '../lib/ui-store';
 import { updateSummaries } from '../lib/ladder-reselect';

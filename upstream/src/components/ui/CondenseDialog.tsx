@@ -1,6 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Archive, Check, Copy, Loader2, Minimize2, X } from 'lucide-react';
+import { ArchiveIcon as Archive } from "@phosphor-icons/react/dist/csr/Archive";
+import { CheckIcon as Check } from "@phosphor-icons/react/dist/csr/Check";
+import { CopyIcon as Copy } from "@phosphor-icons/react/dist/csr/Copy";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { ArrowsInIcon as Minimize2 } from "@phosphor-icons/react/dist/csr/ArrowsIn";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useUiStore, toast } from '../../lib/ui-store';
 import { useStore } from '../../store';
 import { useModels } from '../../lib/use-models';
@@ -93,7 +98,7 @@ export default function CondenseDialog({ onFocusSegment }: { onFocusSegment?: (n
           <Minimize2 size={15} strokeWidth={1.75} className="text-accent" /> {t('condense.title')}
         </div>
         <button onClick={close} title={run.status === 'building' ? t('condense.runningBg') : undefined}
-          className="text-ink-faint hover:text-ink rounded-lg w-7 h-7 flex items-center justify-center hover:bg-wash transition-colors"><X size={15} /></button>
+          className="text-ink-faint hover:text-ink rounded-lg w-7 h-7 flex items-center justify-center hover:bg-wash transition-colors"><X data-icon="x" size={15} /></button>
       </div>
 
       {run.status === 'idle' && (

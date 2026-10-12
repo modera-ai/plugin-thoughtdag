@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { ChevronDown, ChevronRight, ExternalLink, Loader2, Quote } from 'lucide-react';
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { ArrowSquareOutIcon as ExternalLink } from "@phosphor-icons/react/dist/csr/ArrowSquareOut";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { QuotesIcon as Quote } from "@phosphor-icons/react/dist/csr/Quotes";
 import { whyBridge } from '../../lib/why-bridge';
 import { citeHit, openHit, recalledMarkdown } from '../../lib/recall';
 import { cachedCard, makeCard } from '../../lib/recall-cards';

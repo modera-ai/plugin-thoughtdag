@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Eye, Split, X } from 'lucide-react';
+import { EyeIcon as Eye } from "@phosphor-icons/react/dist/csr/Eye";
+import { GitForkIcon as Split } from "@phosphor-icons/react/dist/csr/GitFork";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../store';
 import { effectiveRoles } from '../lib/role-templates';
 import { useUiStore } from '../lib/ui-store';
@@ -80,7 +82,7 @@ export default function FanOutModal({
             <p className="text-xs text-ink-muted mt-1 leading-relaxed">{t('fanout.subtitle')}</p>
           </div>
           <button onClick={onClose} className="text-ink-faint hover:text-ink transition-colors shrink-0 mt-0.5">
-            <X size={16} strokeWidth={1.75} />
+            <X data-icon="x" size={16} strokeWidth={1.75} />
           </button>
         </div>
 

@@ -1,5 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { ChevronDown, ChevronRight, Download, ExternalLink, Loader2, RefreshCw, Sparkles, Tags } from 'lucide-react';
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { DownloadIcon as Download } from "@phosphor-icons/react/dist/csr/Download";
+import { ArrowSquareOutIcon as ExternalLink } from "@phosphor-icons/react/dist/csr/ArrowSquareOut";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
+import { SparkleIcon as Sparkles } from "@phosphor-icons/react/dist/csr/Sparkle";
+import { TagIcon as Tags } from "@phosphor-icons/react/dist/csr/Tag";
 import { useUiStore, toast } from '../../lib/ui-store';
 import { whyBridge, hasWhy } from '../../lib/why-bridge';
 import { docLines, lineNote, setDocText, migrateLegacyMemories, removeInbox, type ProfileKind, type LineNote } from '../../lib/profile';

@@ -1,6 +1,15 @@
 import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import { describeModel } from '../../lib/use-models';
-import { AlertTriangle, ChevronLeft, ChevronRight, Copy, GitBranch, Maximize2, RefreshCw, Star, Trash2, Pencil } from 'lucide-react';
+import { WarningIcon as AlertTriangle } from "@phosphor-icons/react/dist/csr/Warning";
+import { CaretLeftIcon as ChevronLeft } from "@phosphor-icons/react/dist/csr/CaretLeft";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { CopyIcon as Copy } from "@phosphor-icons/react/dist/csr/Copy";
+import { GitBranchIcon as GitBranch } from "@phosphor-icons/react/dist/csr/GitBranch";
+import { ArrowsOutIcon as Maximize2 } from "@phosphor-icons/react/dist/csr/ArrowsOut";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
+import { StarIcon as Star } from "@phosphor-icons/react/dist/csr/Star";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
+import { PencilIcon as Pencil } from "@phosphor-icons/react/dist/csr/Pencil";
 import { useStore } from '../../store';
 import { useUiStore } from '../../lib/ui-store';
 import { generateId } from '../../utils';

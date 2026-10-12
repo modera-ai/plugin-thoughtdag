@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
-import { ChevronDown, ChevronRight, Link2, Loader2, Plus, Sparkles, X } from 'lucide-react';
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { LinkIcon as Link2 } from "@phosphor-icons/react/dist/csr/Link";
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { PlusIcon as Plus } from "@phosphor-icons/react/dist/csr/Plus";
+import { SparkleIcon as Sparkles } from "@phosphor-icons/react/dist/csr/Sparkle";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { whyBridge, hasWhy } from '../../lib/why-bridge';
 import { recallTerms } from '../../lib/recall';
 import { expandTerms, topicsOf, TOPIC_BAR } from '../../lib/topics';
@@ -104,12 +110,12 @@ export default function RelatedSection({ question, answer }: { question: string;
           <div className="flex flex-wrap items-center gap-1" data-related-chips>
             {terms.map((term) => (
               <span key={term} className="inline-flex items-center gap-1 text-2xs px-2 py-0.5 rounded-full border border-line bg-wash text-ink" data-related-term={term}>
-                {term}<button onClick={() => setTerms(terms.filter((x) => x !== term))} className="text-ink-faint hover:text-ink"><X size={10} /></button>
+                {term}<button onClick={() => setTerms(terms.filter((x) => x !== term))} className="text-ink-faint hover:text-ink"><X data-icon="x" size={10} /></button>
               </span>
             ))}
             {picked.map((id) => (
               <span key={id} className="inline-flex items-center gap-1 text-2xs px-2 py-0.5 rounded-full border border-accent/40 bg-accent/10 text-accent" data-related-topic={id} aria-pressed="true">
-                {nameOf(id)}<button onClick={() => togglePick(id)} className="hover:text-ink"><X size={10} /></button>
+                {nameOf(id)}<button onClick={() => togglePick(id)} className="hover:text-ink"><X data-icon="x" size={10} /></button>
               </span>
             ))}
             {adding ? (

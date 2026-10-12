@@ -1,6 +1,17 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Archive, ArchiveRestore, BookOpen, Copy, Files, FlaskConical, GitFork, Layers, Maximize2, RefreshCw, StickyNote, Trash2 } from 'lucide-react';
+import { ArchiveIcon as Archive } from "@phosphor-icons/react/dist/csr/Archive";
+import { TrayArrowUpIcon as ArchiveRestore } from "@phosphor-icons/react/dist/csr/TrayArrowUp";
+import { BookOpenIcon as BookOpen } from "@phosphor-icons/react/dist/csr/BookOpen";
+import { CopyIcon as Copy } from "@phosphor-icons/react/dist/csr/Copy";
+import { FilesIcon as Files } from "@phosphor-icons/react/dist/csr/Files";
+import { FlaskIcon as FlaskConical } from "@phosphor-icons/react/dist/csr/Flask";
+import { GitForkIcon as GitFork } from "@phosphor-icons/react/dist/csr/GitFork";
+import { StackIcon as Layers } from "@phosphor-icons/react/dist/csr/Stack";
+import { ArrowsOutIcon as Maximize2 } from "@phosphor-icons/react/dist/csr/ArrowsOut";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
+import { NoteIcon as StickyNote } from "@phosphor-icons/react/dist/csr/Note";
+import { TrashIcon as Trash2 } from "@phosphor-icons/react/dist/csr/Trash";
 import { useStore } from '../store';
 import { useUiStore, confirmDialog, toast } from '../lib/ui-store';
 import { recapToNote } from '../lib/recap';

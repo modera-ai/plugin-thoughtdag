@@ -1,5 +1,12 @@
 import { useState, useMemo } from 'react';
-import { ChevronDown, ChevronRight, CornerDownRight, Link2, Paperclip, Quote, Sprout, StickyNote } from 'lucide-react';
+import { CaretDownIcon as ChevronDown } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { ArrowElbowDownRightIcon as CornerDownRight } from "@phosphor-icons/react/dist/csr/ArrowElbowDownRight";
+import { LinkIcon as Link2 } from "@phosphor-icons/react/dist/csr/Link";
+import { PaperclipIcon as Paperclip } from "@phosphor-icons/react/dist/csr/Paperclip";
+import { QuotesIcon as Quote } from "@phosphor-icons/react/dist/csr/Quotes";
+import { PlantIcon as Sprout } from "@phosphor-icons/react/dist/csr/Plant";
+import { NoteIcon as StickyNote } from "@phosphor-icons/react/dist/csr/Note";
 import { useStore } from '../../store';
 import { shownStaleIds } from '../../lib/stale-judge';
 import { useUiStore } from '../../lib/ui-store';

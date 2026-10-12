@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent } from 'react';
-import { Loader2, MessageCircleQuestion, Send, X } from 'lucide-react';
+import { SpinnerGapIcon as Loader2 } from "@phosphor-icons/react/dist/csr/SpinnerGap";
+import { ChatCircleDotsIcon as MessageCircleQuestion } from "@phosphor-icons/react/dist/csr/ChatCircleDots";
+import { PaperPlaneTiltIcon as Send } from "@phosphor-icons/react/dist/csr/PaperPlaneTilt";
+import { XIcon as X } from "@phosphor-icons/react/dist/csr/X";
 import { useStore } from '../store';
 import { useUiStore, toast } from '../lib/ui-store';
 import { useProjects } from '../store/projects';
@@ -128,7 +131,7 @@ export default function CanvasChat({ open, onClose, onLocate }: { open: boolean;
         <MessageCircleQuestion size={15} strokeWidth={1.75} className="text-accent" />
         <span className="text-sm font-semibold text-ink flex-1">{t('chat.title')}</span>
         <button type="button" onClick={() => { setTurns([]); saveTurns(projectId, []); }} disabled={!turns.length || busy} className="text-2xs text-ink-faint hover:text-ink disabled:opacity-40" data-chat-clear>{t('chat.clear')}</button>
-        <button type="button" onClick={onClose} className="text-ink-faint hover:text-ink w-7 h-7 rounded-full flex items-center justify-center hover:bg-wash" title={t('common.close')}><X size={15} strokeWidth={1.75} /></button>
+        <button type="button" onClick={onClose} className="text-ink-faint hover:text-ink w-7 h-7 rounded-full flex items-center justify-center hover:bg-wash" title={t('common.close')}><X data-icon="x" size={15} strokeWidth={1.75} /></button>
       </div>
       <div ref={list} className="flex-1 overflow-y-auto px-4 py-3 space-y-3 text-sm" data-chat-turns>
         {!turns.length && (
@@ -176,7 +179,7 @@ export default function CanvasChat({ open, onClose, onLocate }: { open: boolean;
         )}
         <div className="flex items-center gap-1.5 text-2xs text-ink-faint min-w-0" data-chat-focus>
           {focusNode
-            ? <><span className="shrink-0">{t('chat.focus')}</span><button type="button" onClick={() => onLocate(focusNode.id)} className="text-accent truncate min-w-0 hover:underline">{nodeLabel(focusNode.data, lang).split('：')[0]}</button><button type="button" onClick={() => setFocusCleared(true)} className="shrink-0 w-5 h-5 rounded-full hover:bg-wash flex items-center justify-center" title={t('chat.focusAll')}><X size={11} /></button></>
+            ? <><span className="shrink-0">{t('chat.focus')}</span><button type="button" onClick={() => onLocate(focusNode.id)} className="text-accent truncate min-w-0 hover:underline">{nodeLabel(focusNode.data, lang).split('：')[0]}</button><button type="button" onClick={() => setFocusCleared(true)} className="shrink-0 w-5 h-5 rounded-full hover:bg-wash flex items-center justify-center" title={t('chat.focusAll')}><X data-icon="x" size={11} /></button></>
             : <span className="truncate min-w-0"><span className="text-ink-muted">{t('chat.focusAll')}</span> · {t('chat.focusAllHint')}</span>}
         </div>
         <div className="flex items-end gap-1.5">
@@ -190,7 +193,7 @@ export default function CanvasChat({ open, onClose, onLocate }: { open: boolean;
             onInput={(e) => { const ta = e.currentTarget; ta.style.height = 'auto'; ta.style.height = `${Math.min(120, ta.scrollHeight)}px`; }}
             data-chat-input
           />
-          <button type="button" onClick={() => void send()} disabled={!draft.trim() || busy} className="w-8 h-8 rounded-lg bg-accent text-white flex items-center justify-center disabled:opacity-30 shrink-0" title={t('chat.send')} data-chat-send><Send size={14} strokeWidth={1.75} /></button>
+          <button type="button" onClick={() => void send()} disabled={!draft.trim() || busy} className="w-8 h-8 rounded-lg bg-accent text-white flex items-center justify-center disabled:opacity-30 shrink-0" title={t('chat.send')} data-chat-send><Send data-icon="send" size={14} strokeWidth={1.75} /></button>
         </div>
       </div>
     </div>
