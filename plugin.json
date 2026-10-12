@@ -2,7 +2,7 @@
   "apiVersion": 1,
   "id": "modera.thoughtdag",
   "name": "ThoughtDAG",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ThoughtDAG canvas adapted for Modera; upstream chenxiachan/thoughtdag@47ab093 (0.5.17).",
   "author": "Modera contributors and Xia Chen",
   "category": "tasks",
